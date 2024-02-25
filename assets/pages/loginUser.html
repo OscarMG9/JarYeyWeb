@@ -1,0 +1,96 @@
+<html lang="en"><!-- Agrega el enlace al archivo de estilo de Bootstrap -->
+            <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="../css/font.css">
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Login de Administrador</title>
+            
+            <style>
+                body {
+                    background-color: #f8f9fa;
+                }
+        
+                .container {
+                    max-width: 400px;
+                }
+        
+                .login-form {
+                    background-color: #ffffff;
+                    padding: 20px;
+                    margin-top: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+        
+                .login-form h2 {
+                    margin-bottom: 20px;
+                }
+        
+                .login-form img {
+                    margin-bottom: 20px;
+                }
+        
+                .login-form label {
+                    display: block;
+                    margin-bottom: 8px;
+                }
+        
+                .login-form input {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                }
+        
+                .login-form button {
+                    width: 100%;
+                    padding: 10px;
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+        
+                .login-form button.btn-cancelar {
+                    background-color: #dc3545;
+                }
+            </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <!-- Logo en la esquina superior izquierda -->
+                    <img src="../img/logo.png" alt="logo" height="100" width="100">
+                </div>
+            </div>
+            
+            <!-- Formulario de Login para Administrador -->
+            <div class="login-form text-center">
+                <h2>Administrador</h2>
+                <img src="../img/employe.png" alt="Usuario 1" height="150" width="150">
+        
+                <form action="/procesar_login_administrador" method="post">
+                    <label for="usuario">Nombre usuario:</label>
+                    <input type="text" id="usuario" name="usuario" class="form-control" required="">
+        
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" class="form-control" required="">
+        
+                    <a type="submit" class="btn btn-primary btn-entrar" href="./Dashboard.html">Entrar</a>
+                    <a type="button" class="btn btn-danger btn-cancelar" href="./userAccount.html">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Agrega los enlaces a los scripts de Bootstrap y jQuery al final del body para un rendimiento óptimo -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
