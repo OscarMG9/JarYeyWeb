@@ -13,6 +13,7 @@
               <input class="form-control me-3" type="search" placeholder="Nombre/código del producto" aria-label="Search">
               <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
+            <a href="../backend/admin/CerrarSesion.php">Cerrar sesion</a>
           </div>
         </div>
       </nav>

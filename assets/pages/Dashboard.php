@@ -1,4 +1,22 @@
 <?php include("../navigation/navbar.php")?>
+
+<?php include('../navigation/navigation/navbar.php') ?>
+<?php
+    session_start();
+
+    if(!isset($_SESSION['usuario'])){
+        echo '
+            <script>
+                alert("Por favor, debes de iniciar sesión");
+                window.location = "../../index.html";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <html lang="en">

@@ -1,3 +1,5 @@
+<?php include("../backend/conexion.php")?>
+
 <html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,7 +73,7 @@
         <h2>Administrador</h2>
         <img src="../img/Admin-Profile-PNG-Clipart.png" alt="Usuario 1" height="150" width="150">
 
-        <form action="/procesar_login_administrador" method="post">
+        <form action="assets/backend/admin/logueo.php" method="post">
             <label for="usuario">Nombre usuario:</label>
             <input type="text" id="usuario" name="usuario" class="form-control" required="">
             <small id="text-error-usuario" class="form-text text-danger"></small>
