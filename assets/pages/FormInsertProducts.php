@@ -1,3 +1,5 @@
+<?php include("../navigation/navbar.php")?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -74,7 +76,7 @@
                     <div class="form-row">
                         <div class="col-12 text-center">
                             <input type="submit" class="btn btn-success mb-2" name="submit" value="Entrar" onclick="validarLogin()">
-                            <a type="reset" class="btn btn-danger mb-2 text-light" href="../pages/Dashboard.html">Cancelar</a>
+                            <a type="reset" class="btn btn-danger mb-2 text-light" href="../pages/Dashboard.php">Cancelar</a>
                         </div>
                     </div>
                 </form>

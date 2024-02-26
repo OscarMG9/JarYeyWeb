@@ -24,9 +24,6 @@
             </style>
     </head>
     <body>
-        <div id="logo-container">
-            <img src="../img/logo.png" alt="logo" height="150" width="150">
-        </div>
         <h2 class="text-center">Tabla de Productos</h2>
         <div class="container">
             <div class="row">
@@ -56,7 +53,8 @@
                                             <td>Botella de 2 litros</td>
                                             <td>3</td>
                                             <td>
-                                                <a href="./FormUpdate.html" class="btn btn-primary">Actualizar</a>
+                                                <a href="./FormUpdate.php
+                                                " class="btn btn-primary">Actualizar</a>
                                                 <input type="reset" value="Borrar" class="btn btn-danger">
                                             </td>
                                         </tr>
@@ -75,7 +73,7 @@
                         <div class="col-2 text-center">
                             <div class="button-container">
                                 <!-- <button onclick="mostrarOpciones()">Agregar</button> -->
-                                <a class="btn btn-primary" href="./FormInsertProducts.html">Agregar</a>
+                                <a class="btn btn-primary" href="./FormInsertProducts.php">Agregar</a>
                             </div>
                             <div class="botones-reportes">
                                 <a class="btn btn-warning" href="./FormInsertProducts.html">Reporte</a>
