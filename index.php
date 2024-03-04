@@ -10,13 +10,13 @@
     
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-12 mt-5">
+            <div class="col-12 mt-5">
                 <div class="logo-container" >
-                    <img src="./assets/img/logo.png" alt="">
-                </div>
-    
-                <div class="button-container">
-                    <a class="btn btn-outline-primary btn-lg" href='./assets/pages/userAccount.html'>
+                    <img src="./assets/img/logo.png" alt="" width="400px">
+                </div class="my-3">
+                <br>
+                <div class="button-container text-center">
+                    <a class="btn btn-outline-primary btn-lg" href='./assets/pages/userAccount.php'>
                         Iniciar Sesión
                     </a>
                 </div>

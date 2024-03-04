@@ -1,8 +1,8 @@
 <?php include("../backend/conexion.php")?>
 
 <html lang="en"><!-- Agrega el enlace al archivo de estilo de Bootstrap -->
-            <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-            <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/font.css">
     <html lang="es">
         <head>
             <meta charset="UTF-8">
@@ -25,8 +25,8 @@
                     <input type="password" id="contrasena" name="contrasena" class="form-control" required="">
                     <small id="text-error-usuario" class="form-text text-danger"></small>
                     
-                    <a type="submit" class="btn btn-primary btn-entrar" href="./Dashboard.php" onclick="validarFormulario()">Entrar</a>
-                    <a type="button" class="btn btn-danger btn-cancelar" href="./userAccount.html">Cancelar</a>
+                    <button type="submit" class="btn btn-primary" name="entrar">Entrar</button>
+                    <a type="button" class="btn btn-danger btn-cancelar" href="./userAccount.php">Cancelar</a>
                 </form>
             </div>
         </div>

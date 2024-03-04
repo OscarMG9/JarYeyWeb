@@ -17,6 +17,7 @@ body {
     background-size: cover;
     border-radius: 10px; /* Esquinas redondeadas */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    border: none;
 }
 
 .logo {
@@ -64,18 +65,4 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-}
-
-.login-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-form button.btn-cancelar {
-    background-color: #dc3545;
 }
