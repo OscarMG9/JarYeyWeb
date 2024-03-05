@@ -21,29 +21,19 @@
                             <input type="text" name="nombreArticulo" id="nombreArticulo" placeholder="Nombre del articulo" class="form-control">
                             <small id="text-error-nombre" class="form-text text-danger"></small>
                         </div>
-                        <div class="col-4">
-                            <label for="" class="text-dark">Marca</label>
-                            <input type="text" name="nombreMarca" id="nombreMarca" placeholder="Marca del articulo" class="form-control">
-                            <small id="text-error-nombre" class="form-text text-danger"></small>
-                        </div>
-                        <div class="col-1">
-                            <label for="" class="text-dark">Cantidad</label>
-                            <input type="number" min="0" max="100" name="cantidadArticulos" id="cantidadArticulos" placeholder="0" class="form-control">
-                            <small id="text-error-nombre" class="form-text text-danger"></small>
-                        </div>
-                        <div class="col-3">
-                            <label for="" class="text-dark">Precio</label>
-                            <input type="text" name="precioProducto" id="precioProducto" placeholder="0" class="form-control">
-                            <small id="text-error-nombre" class="form-text text-danger"></small>
-                        </div>
-                    </div>
-                    <div class="form-row">
                         <div class="col-6">
-                            <label for="" class="text-dark">Articulo</label>
+                        <label for="" class="text-dark">Descripcion</label>
                             <textarea type="text" name="nombreArticulo" id="nombreArticulo" placeholder="Nombre del articulo" class="form-control"></textarea>
                             <small id="text-error-nombre" class="form-text text-danger"></small>
                         </div>
                         <div class="col-2">
+                            <label for="" class="text-dark">Cantidad</label>
+                            <input type="number" min="0" max="100" name="cantidadArticulos" id="cantidadArticulos" placeholder="0" class="form-control">
+                            <small id="text-error-nombre" class="form-text text-danger"></small>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-4">
                             <label class="text-dark">Presentación</label>
                                 <select name="presentacion" id="presentacion" class="form-control">
                                     <option value="presentacion">Elige una opción</option>
@@ -70,6 +60,12 @@
                                 <label class="custom-file-label" for="validatedCustomFile">Selecciona archivo</label>
                             </div>
                             <!-- <input type="file" name="imagen" accept="image/*" required> -->
+                        </div>
+                        
+                        <div class="col-4">
+                            <label for="" class="text-dark">Precio</label>
+                            <input type="text" name="precioProducto" id="precioProducto" placeholder="0" class="form-control">
+                            <small id="text-error-nombre" class="form-text text-danger"></small>
                         </div>
                     </div>
                     <br>
