@@ -8,12 +8,12 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../pages/Dashboard.html"><img src="../img/logo.png" alt="" width="50px"></a>
+            <a class="navbar-brand" href="../pages/Dashboard.php"><img src="../img/logo.png" alt="" width="50px"></a>
             <form class="d-flex" role="search">
               <input class="form-control me-3" type="search" placeholder="Nombre/código del producto" aria-label="Search">
               <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
-            <a href="../backend/admin/CerrarSesion.php">Cerrar sesion</a>
+            <a href="../backend/admin/CerrarSesion">Cerrar sesion</a>
           </div>
         </div>
       </nav>

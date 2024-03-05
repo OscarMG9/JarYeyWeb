@@ -10,24 +10,26 @@
             <title>Login de Administrador</title>
     </head>
     <body>
-        <div class="container mt-5">
+        <div class="container-lg mt-5 text-center">
             <!-- Formulario de Login para Administrador -->
-            <div class="login-form text-center">
-                <h2>Empleado</h2>
-                <img src="../img/employe.png" alt="Usuario 1" height="150" width="150">
-        
-                <form action="assets\backend\admin\logueo.php" method="post">
-                    <label for="usuario">Nombre usuario:</label>
-                    <input type="text" id="usuario" name="usuario" class="form-control" required="">
-                    <small id="text-error-usuario" class="form-text text-danger"></small>
+            <div class="text-center">
+                <div class="login-form text-center">
+                    <h2>Empleado</h2>
+                    <img src="../img/employe.png" alt="Usuario 1" height="150" width="150">
+            
+                    <form action="../backend/admin/logueo.php" method="post">
+                        <label for="usuario">Nombre usuario:</label>
+                        <input type="text" id="usuario" name="usuario" class="form-control" required="">
+                        <small id="text-error-usuario" class="form-text text-danger"></small>
 
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" id="contrasena" name="contrasena" class="form-control" required="">
-                    <small id="text-error-usuario" class="form-text text-danger"></small>
-                    
-                    <button type="submit" class="btn btn-primary" name="entrar">Entrar</button>
-                    <a type="button" class="btn btn-danger btn-cancelar" href="./userAccount.php">Cancelar</a>
-                </form>
+                        <label for="contrasena">Contraseña:</label>
+                        <input type="password" id="contrasena" name="contrasena" class="form-control" required="">
+                        <small id="text-error-usuario" class="form-text text-danger"></small>
+                        
+                        <button type="submit" class="btn btn-primary" name="entrar">Entrar</button>
+                        <a type="button" class="btn btn-danger btn-cancelar" href="./userAccount.php">Cancelar</a>
+                    </form>
+                </div>
             </div>
         </div>
         

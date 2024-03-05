@@ -17,7 +17,7 @@
         echo '
             <script>
                 alert("Usuario no encontrado, verifica tus datos");
-                window.location = "../../index.html";
+                window.location = "../../index.php";
             </script>
         ';
       exit;

@@ -1,6 +1,4 @@
 <?php include("../navigation/navbar.php")?>
-
-<?php include('../navigation/navigation/navbar.php') ?>
 <?php
     session_start();
 
@@ -8,7 +6,7 @@
         echo '
             <script>
                 alert("Por favor, debes de iniciar sesión");
-                window.location = "../../index.html";
+                window.location = "../../index.php";
             </script>
         ';
         session_destroy();
@@ -36,7 +34,7 @@
                 }
 
                 th, td {
-                    width: 100px;
+                    width: 200px;
                     word-wrap: break-word;
                 }
             </style>

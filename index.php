@@ -11,7 +11,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 mt-5">
-                <div class="logo-container" >
+                <div class="logo-container text-center" >
                     <img src="./assets/img/logo.png" alt="" width="400px">
                 </div class="my-3">
                 <br>
