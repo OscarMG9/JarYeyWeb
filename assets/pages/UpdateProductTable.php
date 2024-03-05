@@ -14,7 +14,7 @@
         <br>
         <div class="row">
             <div class="col-12">
-                <form action="../backend/admin/insert.php" method="POST" enctype="multipart/form-data" class="form-group">
+                <form action="../backend/admin/inventario/updateProduct.php" method="POST" enctype="multipart/form-data" class="form-group">
                     <div class="form-row">
                         <div class="col-4">
                             <label for="" class="text-dark">Articulo</label>
@@ -65,7 +65,7 @@
                     <br>
                     <div class="form-row">
                         <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-success mb-2" name="guardar" onclick="validarLogin()">Guardar</button>
+                            <button type="submit" class="btn btn-success mb-2" name="guardar" onclick="validarLogin()">Actualizar</button>
                             <a type="reset" class="btn btn-danger mb-2 text-light" href="../pages/Dashboard.php">Cancelar</a>
                         </div>
                     </div>

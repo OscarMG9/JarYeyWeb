@@ -1,4 +1,6 @@
 <?php include("../navigation/navbar.php")?>
+<?php include("../backend/conexion.php")?>
+
 <?php
     session_start();
 
@@ -21,23 +23,7 @@
         <head>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
             <link rel="stylesheet" href="../css/font.css">
-            <style>
-                /* #tabla-productos {
-                    border-collapse: collapse;
-                    width: 50%;
-                    margin: 0 auto;
-                } */
-        
-                .button-container {
-                    text-align: center;
-                    margin-bottom: 20px;
-                }
-
-                th, td {
-                    width: 200px;
-                    word-wrap: break-word;
-                }
-            </style>
+            <link rel="stylesheet" href="../css/tables.css">
     </head>
     <body>
         <h2 class="text-center">Tabla de Productos</h2>
@@ -48,32 +34,32 @@
                         <div class="col-10">
                             <div class="reporte-container text-center">
                                 <table id="tabla-productos" class="table table-bordered">
-                                    <tbody>
+                                    <thead>
                                         <tr>
                                             <th>Articulo</th>
                                             <th>Detalles</th>
                                             <th>Stock</th>
                                             <th>Acciones</th>
                                         </tr>
-                                        <tr>
-                                            <td>Axión</td>
-                                            <td>Botella de 2 litros</td>
-                                            <td>10</td>
-                                            <td>
-                                                <a href="./FormUpdate.html" class="btn btn-primary">Actualizar</a>
-                                                <input type="reset" value="Borrar" class="btn btn-danger">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cloro</td>
-                                            <td>Botella de 2 litros</td>
-                                            <td>3</td>
-                                            <td>
-                                                <a href="./FormUpdate.php
-                                                " class="btn btn-primary">Actualizar</a>
-                                                <input type="reset" value="Borrar" class="btn btn-danger">
-                                            </td>
-                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php 
+                                        $query = "SELECT idProducto, nombreProducto, descripcionProducto, cantidadProducto FROM productos;";
+                                        $result = mysqli_query($conexion, $query);
+
+                                        while ($row = mysqli_fetch_array($result)){ ?>
+                                            <tr>
+                                                <td><?php echo $row['nombreProducto'] ?></td> 
+                                                <td><?php echo $row['descripcionProducto'] ?></td> 
+                                                <td><?php echo $row['cantidadProducto'] ?></td>
+                                                <td>
+                                                    <a class="btn btn-primary" href="./updateProductTable.php?idProducto=<?php echo $row['idProducto'] ?>">Actualizar</a>
+                                                    <a class="btn btn-danger" href="../backend/admin/inventario/deleteProduct.php?idProducto=<?php echo $row['idProducto']?>" onclick="confirmar();">Borrar</a>
+                                                </td>
+                                            </tr>
+
+                                        <?php }
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
