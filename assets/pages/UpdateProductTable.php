@@ -14,21 +14,38 @@
         <br>
         <div class="row">
             <div class="col-12">
+            <?php
+                $sql = "SELECT
+                `idProducto`,
+                `nombreProducto`,
+                `precio`,
+                `cantidadProducto`,
+                `descripcionProducto`,
+                `imagen`,
+                `idPresentacion`
+                FROM `productos`
+                WHERE `idProducto`='" . $_GET['idProducto'] . "'
+                ;
+                ";
+    
+                $resultSet = mysqli_query($conexion, $sql);
+                $row = mysqli_fetch_array($resultSet, MYSQLI_ASSOC);
+            ?>
                 <form action="../backend/admin/inventario/updateProduct.php" method="POST" enctype="multipart/form-data" class="form-group">
                     <div class="form-row">
                         <div class="col-4">
                             <label for="" class="text-dark">Articulo</label>
-                            <input type="text" name="nombreArticulo" id="nombreArticulo" placeholder="Nombre del articulo" class="form-control">
+                            <input type="text" name="nombreArticulo" id="nombreArticulo" placeholder="Nombre del articulo" class="form-control" value="<?php echo $row['nombreProducto']?>">
                             <small id="text-error-nombre" class="form-text text-danger"></small>
                         </div>
                         <div class="col-6">
                         <label for="" class="text-dark">Descripcion</label>
-                            <textarea type="text" name="descripcionArticulo" id="descripcionArticulo" placeholder="Nombre del articulo" class="form-control"></textarea>
+                            <textarea type="text" name="descripcionArticulo" id="descripcionArticulo" placeholder="Nombre del articulo" class="form-control" value="<?php echo $row['cantidadProducto']?>"></textarea>
                             <small id="text-error-nombre" class="form-text text-danger"></small>
                         </div>
                         <div class="col-2">
                             <label for="" class="text-dark">Cantidad</label>
-                            <input type="number" min="0" max="100" name="cantidadArticulos" id="cantidadArticulos" placeholder="0" class="form-control">
+                            <input type="number" min="0" max="100" name="cantidadArticulos" id="cantidadArticulos" placeholder="0" class="form-control" value="<?php echo $row['cantidadProducto']?>">
                             <small id="text-error-nombre" class="form-text text-danger"></small>
                         </div>
                     </div>
@@ -74,4 +91,5 @@
         </div>
     </div>
 </body>
-</html>
+<!-- </html>SELECT p.nombreProducto, p.precio, p.cantidadProducto, p.descripcionProducto, pr.nombrePresentacion FROM productos p INNER JOIN presentacion pr
+ON p.idPresentacion = pr.idPresentacion; -->
