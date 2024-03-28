@@ -1,5 +1,5 @@
 body {     
-    background-image: url('https://img.freepik.com/vector-premium/fondos-abstractos-formas-geometricas-dibujar-mano-formas-liquidas-colores-pastel_147635-272.jpg');
+    background-image: url('../img/fondo3.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -19,11 +19,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
     border: none;
 }
-
-/* .logo {
-    height: 100px;
-    width: 100px;
-} */
 
 .user-images {
     margin-bottom: 20px;
