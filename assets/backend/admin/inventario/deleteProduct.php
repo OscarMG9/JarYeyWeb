@@ -10,5 +10,5 @@
         die("FALLO CONSULTA");
     }
 
-    header("location: ../../../pages/Dashboard.php");
+    header("location: ../../../pages/Inventario.php");
 ?>

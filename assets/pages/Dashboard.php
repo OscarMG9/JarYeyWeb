@@ -1,5 +1,21 @@
 <?php include("../navigation/navbar.php")?>
 <?php include("../backend/conexion.php")?>
+
+<?php
+    session_start();
+
+    if(!isset($_SESSION['usuario'])){
+        echo '
+            <script>
+                alert("Por favor, debes de iniciar sesión");
+                window.location = "../../index.php";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +24,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../css/fondoDashboard.css">
-    <title>Dashboard</title>
+    <title>Página principal</title>
 </head>
 <body>
     <?php
-        $mostrar = "SELECT nombreProducto, descripcionProducto, cantidadProducto, nombreImagen, imagen, tipo FROM productos;";
+        $mostrar = "SELECT idProducto, nombreProducto, descripcionProducto, cantidadProducto, nombreImagen, imagen, tipo FROM productos;";
         $result = mysqli_query($conexion, $mostrar);
     ?>
 
     <div class="text-center mt-3">
         <a class="btn btn-primary" href="./Inventario.php">Inventario</a>
-        <a href="" class="btn btn-warning"><i class="fa fa-shopping-cart fa-5x"></i></a>
+        <a href="../venta/carrito_venta.php" class="btn btn-warning"><i class="fa fa-shopping-cart fa-3x"></i></a>
     </div>
 
     <div class="container my-4">
@@ -38,7 +54,7 @@
                             <div class="card-body text-center">
                                 <h5 class="card-title text-center"><?php echo $row['nombreProducto'] ?></h5>
                                 <p class="card-text"><?php echo $row['descripcionProducto']?></p>
-                                <a class="btn btn-primary" href="./updateProductTable.php?idProducto=<?php echo $row['idProducto'] ?>">Detalles</a>
+                                <a class="btn btn-primary" href="./viewProductsDetails.php?idProducto=<?php echo $row['idProducto'] ?>">Detalles</a>
                             </div>
                         </div>
                     </div>
