@@ -16,7 +16,7 @@ if(isset($_POST['vender'])) {
               VALUES ('$idProducto', '$costoProducto', '$cantidad', '$precioTotal', '$CantidadRecibido','$Cambio_a_Regresar','$fecha_venta', '$idCuenta')";
     
     if (mysqli_query($conexion, $query)) {
-        header("location: ../../../venta/carrito_venta.php");
+        header("location: ../../../ventaEmpleado/carrito_venta.php");
         echo "Los datos se han guardado correctamente.";
     } else {
         echo "Error al guardar los datos: " . mysqli_error($conexion);

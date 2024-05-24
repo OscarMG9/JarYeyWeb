@@ -14,7 +14,7 @@
     <div class="container mt-4 bg-secondary bg-gradient rounded p-5">
         <div class="row">
             <div class="col-12">
-                <form action="../backend/admin/insert.php" method="POST" enctype="multipart/form-data" class="form-group">
+                <form action="../backend/admin/insertEmpleado.php" method="POST" enctype="multipart/form-data" class="form-group">
                     <div class="row">
                         <div class="col-4">
                             <label for="" class="text-dark">Imagen</label>
@@ -73,7 +73,7 @@
                     <div class="form-row">
                         <div class="col-12 text-center">
                             <button type="submit" class="btn btn-success mb-2" name="guardar" onclick="validarLogin()">Guardar</button>
-                            <a type="reset" class="btn btn-danger mb-2 text-light" href="../pages/Inventario.php">Cancelar</a>
+                            <a type="reset" class="btn btn-danger mb-2 text-light" href="../pagesEmpleado/Inventario.php">Cancelar</a>
                         </div>
                     </div>
                 </form>

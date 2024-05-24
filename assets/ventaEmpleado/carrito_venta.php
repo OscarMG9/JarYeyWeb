@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="my-2 bg-warning text-dark text-center rounded">Seleccionar Producto</h2>
-                <form action="../backend/admin/venta/venta.php" id="formulario-venta" method="POST">
+                <form action="../backend/admin/ventaEmpleado/venta.php" id="formulario-venta" method="POST">
                     <div class="row">
                         <div class="col-4 form-group">
                             <label for="idProducto">Producto:</label>
@@ -182,7 +182,7 @@
             var precioTotal = cantidad * precioProducto;
             document.getElementById('precio_total').value = precioTotal.toFixed(2);
         }
-
+        
         function calcularCambio() {
             var cantidadRecibida = parseFloat(document.getElementById('cantidad_recibida').value);
             var precioTotal = parseFloat(document.getElementById('precio_total').value);

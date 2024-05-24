@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Buscar</button>
-                <a href="../pages/Inventario.php" class="btn btn-secondary">Regresar</a>
+                <a href="../pagesEmpleado/Inventario.php" class="btn btn-secondary">Regresar</a>
             </form>
 
             <?php

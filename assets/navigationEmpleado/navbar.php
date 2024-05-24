@@ -13,7 +13,7 @@
                 event.preventDefault(); // Evitar el envío del formulario predeterminado
                 var searchTerm = $('#searchInput').val();
                 var selectedPresentation = $('#idPresentacion').val(); // Obtener la presentación seleccionada
-                window.location.href = '../backend/admin/Busqueda/resultados_busqueda.php?search=' + searchTerm + '&presentation=' + selectedPresentation;
+                window.location.href = '../backend/admin/BusquedaEmpleado/resultados_busqueda.php?search=' + searchTerm + '&presentation=' + selectedPresentation;
             });
         });
     </script>
@@ -24,7 +24,7 @@
                 event.preventDefault(); // Evitar el envío del formulario predeterminado
                 var selectedPresentation = $('#idPresentacion').val(); // Obtener la presentación seleccionada
                 // Redirigir a la página de resultados de búsqueda con la presentación como parámetro
-                window.location.href = '../backend/admin/Busqueda/filtrado.php?idPresentacion=' + selectedPresentation;
+                window.location.href = '../backend/admin/BusquedaEmpleado/filtrado.php?idPresentacion=' + selectedPresentation;
             });
         });
     </script>
@@ -45,7 +45,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../pages/Dashboard.php"><img src="../img/logo.png" alt="" width="50px"></a>
+            <a class="navbar-brand" href="../pagesEmpleado/Dashboard.php"><img src="../img/logo.png" alt="" width="50px"></a>
             <form id="searchForm" class="d-flex" role="search">
             <div class="row">
                 <div class="col-sm-6">
