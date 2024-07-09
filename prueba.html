@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
+    <style>
+        .range-slider {
+            display: flex;
+            align-items: center;
+        }
+        #price-range {
+            width: 100%;
+            margin: 0 10px;
+        }
+        .range-slider span {
+            width: 50px;
+            text-align: center;
+        }
+        .is-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <aside class="menu">
+                        <p class="menu-label">Explorar por</p>
+                        <ul class="menu-list">
+                            <li>
+                                <a class="is-active" href="https://prezxochiitzel.wixsite.com/a-punto-de-venta/category/all-products">
+                                    Todos los productos
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <aside class="menu">
+                        <p class="menu-label">Filtrar por</p>
+                        <ul class="menu-list">
+                            <li>
+                                <button class="button is-fullwidth is-light">Precio</button>
+                                <div class="content">
+                                    <div class="range-slider">
+                                        <span id="price-min">$7.50</span>
+                                        <div id="price-range"></div>
+                                        <span id="price-max">$130.00</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="button is-fullwidth is-light" onclick="toggleContent(this.nextElementSibling)">Color</button>
+                                <div class="content is-hidden">
+                                    <div class="tags">
+                                        <span class="tag" style="background-color: rgb(120, 63, 4);">Brown</span>
+                                        <span class="tag" style="background-color: rgb(128, 128, 128);">Grey</span>
+                                        <span class="tag" style="background-color: rgb(0, 0, 0);">Negro</span>
+                                        <span class="tag" style="background-color: rgb(255, 255, 255);">White</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="button is-fullwidth is-light" onclick="toggleContent(this.nextElementSibling)">Tamaño</button>
+                                <div class="content is-hidden">
+                                    <div class="field">
+                                        <input type="checkbox" id="large">
+                                        <label for="large">Grande</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="checkbox" id="medium">
+                                        <label for="medium">Mediano</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="checkbox" id="one-size">
+                                        <label for="one-size">One size</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="checkbox" id="small">
+                                        <label for="small">Pequeño</label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="column">
+                    <div id="TPAMultiSection_lxjfxvdd.category-page-list-top"></div>
+                    <div id="TPAMultiSection_lxjfxvdd.gallery-filters-bottom"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
+    <script>
+        var slider = document.getElementById('price-range');
+        var priceMin = document.getElementById('price-min');
+        var priceMax = document.getElementById('price-max');
+
+        noUiSlider.create(slider, {
+            start: [7.5, 130],
+            connect: true,
+            range: {
+                'min': 7.5,
+                'max': 130
+            },
+            step: 0.5,
+            tooltips: [true, true],
+            format: {
+                to: function (value) {
+                    return '$' + value.toFixed(2);
+                },
+                from: function (value) {
+                    return Number(value.replace('$', ''));
+                }
+            }
+        });
+
+        slider.noUiSlider.on('update', function (values, handle) {
+            if (handle === 0) {
+                priceMin.innerHTML = values[0];
+            } else {
+                priceMax.innerHTML = values[1];
+            }
+        });
+
+        function toggleContent(content) {
+            content.classList.toggle('is-hidden');
+        }
+    </script>
+</body>
+</html>

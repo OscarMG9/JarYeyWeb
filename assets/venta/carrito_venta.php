@@ -86,14 +86,14 @@
                         </div>
                         <div class="col-4 form-group">
                             <label class="text-dark">Vendedor</label>
-                            <select name="idCuenta" id="idCuenta" class="form-control">
-                                <option value="idCuenta">Elige una opción</option>
+                            <select name="idRole" id="idRole" class="form-control">
+                                <option value="idRole">Elige una opción</option>
                                 <?php
-                                    $query = "SELECT idCuenta, Usuario FROM cuentaspersonal";
+                                    $query = "SELECT idRole, usuario FROM cuentaspersonal";
                                     $ejecutar= mysqli_query($conexion, $query)
                                 ?>
                                 <?php foreach ($ejecutar as $opciones): ?>
-                                <option value="<?php echo $opciones['idCuenta']?>"><?php echo $opciones['Usuario']?></option>
+                                <option value="<?php echo $opciones['idRole']?>"><?php echo $opciones['usuario']?></option>
                                 <?php endforeach  ?>
                             </select> 
                         </div>
@@ -136,7 +136,7 @@
                     <br>
                     <div class="text-center">
                         <button type="submit" class="btn btn-success" name="vender">Vender</button>
-                        <button type="reset" class="btn btn-dark">Vaciar compra</button>
+                        <button type="reset" class="btn btn-dark">Vaciar venta</button>
                         <a href="../pagesEmpleado/Dashboard.php" class="btn btn-danger">Regresar</a>
                     </div>
                 </form>
