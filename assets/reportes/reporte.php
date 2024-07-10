@@ -4,7 +4,7 @@
         <title>Generar reporte</title>
         <link rel="stylesheet" href="../css/fondoDashboard.css">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="shortcut icon" href="../img/logo.png">
+        <link rel="icon" href="./assets/img/logo2.png" type="image/png">
     </head>
     <body>
 

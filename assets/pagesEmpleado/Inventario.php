@@ -9,6 +9,7 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-tlS/2v5lW98AW+oDeMuoLXiP4u17RCKGXh9kuDjIugW0o+uW0pU3+PoTx+pvz9l6ZzZ5gTRQ+YO1BTR9KspxQg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <link rel="stylesheet" href="../css/tables.css">
             <link rel="stylesheet" href="../css/fondoDashboard.css">
+            <link rel="icon" href="./assets/img/logo2.png" type="image/png">
             <title>Inventario</title>
     </head>
     <body>

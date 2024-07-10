@@ -7,6 +7,20 @@ body {
     background-color: #f0f0f0;
 }
 
+.boton{
+    padding: 10px 20px;
+    border-radius: 25px; /* Bordes redondeados */
+    background-color: #0D0D0D; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px;
+    cursor: pointer;
+}
+.boton:hover{
+    transition: color 1.s; 
+    background-color: #011126;
+    color: white;
+}
+
 .fondo{
     background-image: url('../img/fondo-abstracto-blanco.jpg');
     background-size: cover;
@@ -15,7 +29,6 @@ body {
     max-width: 1300px; /* Ajusta el ancho máximo según sea necesario */
     margin: auto; /* Centra el contenedor */
     padding: 20px; /* Agrega espacio interno */
-    border: 2px solid #3f1a69; /* Añade un borde con color */
     background-image: url(../img/fondo-abstracto-blanco.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -64,4 +77,12 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.img-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2); /* Sombra de la imagen */
 }

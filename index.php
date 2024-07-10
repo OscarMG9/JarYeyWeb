@@ -7,13 +7,14 @@
   <!-- Estilos de Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/fondo.css">
+  <link rel="icon" href="./assets/img/logo2.png" type="image/png">
 </head>
 <body>
   <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
     <div class="text-center">
-      <img src="./assets/img/logo2.png" alt="Imagen" class="img-fluid">
+      <img src="./assets/img/logo2.png" style="width: 400px;" alt="Imagen" class="rounded-circle img-shadow">
       <br><br>
-      <a class="btn btn-primary" href="./assets/pages/userAccount.php">Comenzar</a>
+      <a class="boton shadow-lg" href="./assets/pages/userAccount.php">Comenzar</a>
     </div>
   </div>
 
