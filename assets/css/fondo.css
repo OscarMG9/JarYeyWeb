@@ -1,5 +1,5 @@
 body {
-    background-image: url('../img/fondo.jpeg');
+    background-image: url('../img/v2/fondo.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -22,14 +22,14 @@ body {
 }
 
 .fondo{
-    background-image: url('../img/fondo-abstracto-blanco.jpg');
+    background-image: url('../img/v1/fondo-abstracto-blanco.jpg');
     background-size: cover;
 }
 .custom-container {
     max-width: 1300px;
     margin: auto;
     padding: 20px;
-    background-image: url(../img/fondo-abstracto-blanco.jpg);
+    background-image: url(../img/v1/fondo-abstracto-blanco.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;

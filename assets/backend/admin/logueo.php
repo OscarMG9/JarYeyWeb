@@ -23,7 +23,7 @@
         echo '
             <script>
                 alert("Usuario no encontrado, verifica tus datos");
-                window.location = "../../index.php";
+                window.location = "../../pages/userAccount.php";
             </script>
         ';
       exit;

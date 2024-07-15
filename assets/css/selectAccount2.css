@@ -1,5 +1,5 @@
-body {
-    background-color: #55C1D9;
+body{
+    background: url(../img/fondo.jpeg);
 }
 
 .custom-container {
@@ -12,4 +12,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: none;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
