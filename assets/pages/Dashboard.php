@@ -46,7 +46,7 @@ include("../navigation/navbar.php");
 include("../backend/conexion.php");
 
 // Consulta a la base de datos u otras operaciones PHP aquí
-$mostrar = "SELECT idProducto, nombreProducto, descripcionProducto, cantidadProducto, nombreImagen, imagen, tipo FROM productos;";
+$mostrar = "SELECT idProducto, nombreProducto, descripcionProducto, precio,cantidadProducto, nombreImagen, imagen, tipo FROM productos;";
 $result = mysqli_query($conexion, $mostrar);
 ?>
 <!DOCTYPE html>
@@ -59,15 +59,74 @@ $result = mysqli_query($conexion, $mostrar);
     <link rel="stylesheet" href="../css/fondoDashboard.css">
     <link rel="stylesheet" href="../css/chat.css">
     <link rel="icon" href="./assets/img/logo2.png" type="image/png">
+    <link rel="stylesheet" href="../css/Menu.css">
     <title>Página principal</title>
 </head>
 <body>
-    <div class="text-center mt-3">
-        <a class="btn btn-primary" href="./Inventario.php">Inventario</a>
-        <a href="../venta/carrito_venta.php" class="btn btn-warning"><i class="fa fa-shopping-cart fa-3x"></i></a>
+
+    <div class="barra-lateral">
+        <div class="mb-2">
+            <div class="nombre-pagina">
+                <img src="../img/v2/logo2.png" class="logo">
+                <span>JARYEY</span>
+            </div>
+        </div>
+        <nav class="navegacion">
+            <ul>
+                <li class="menu-item">
+                    <a href="#">
+                        <ion-icon name="cash-outline"></ion-icon>
+                        <span>Precio</span>
+                        <ion-icon class="chevron-icon" name="chevron-down-outline"></ion-icon>
+                    </a>
+                    <div class="precio-range-container">
+                        <label for="precio-range">Rango de Precio:</label>
+                        <input type="range" id="precio-range" name="precio-range" min="0" max="1000" step="10" value="500">
+                        <span id="precio-valor">500</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="star-outline"></ion-icon>
+                        <span>Starred</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="paper-plane-outline"></ion-icon>
+                        <span>Sent</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="./Inventario.php">
+                        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                        <span>Inventario</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../venta/carrito_venta.php">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <div class="usuario">
+                <img src="../img/v2/admin.png" alt="">
+                <div class="info-usuario">
+                    <div class="nombre-email">
+                        <span class="nombre">Jhampier</span>
+                        <span class="email">jhampier@gmail.com</span>
+                    </div>
+                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container my-4">
+    <main>
+    <div class="container my-2">
         <div class="row">
             <?php 
             $count = 0; 
@@ -76,18 +135,22 @@ $result = mysqli_query($conexion, $mostrar);
                     echo '</div><div class="row">';
                 }
             ?>
-            <div class="col-md-3 mb-4">
-                <div class="card text-bg-light mb-3 h-100" style="max-width: 16rem;">
-                    <div>
-                        <img src="data:<?php echo $row['tipo']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" class="card-img-top" alt="..." style="height: 290px;">   
+            <div class="col-md-3 mb-2">
+                <a href="./viewProductsDetails.php?idProducto=<?php echo $row['idProducto'] ?>" class="card-link">
+                    <div class="card-custom text-bg-light mb-3 h-100 shadow-lg" style="max-width: 16rem;">
+                        <div>
+                            <img src="data:<?php echo $row['tipo']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" class="card-img-top" alt="..." style="height: 290px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-center"><?php echo $row['nombreProducto'] ?></h5>
+                            <p class="card-text"><?php echo $row['descripcionProducto']?></p>
+                            <p class="card-text ">$<?php echo $row['precio']?></p>
+                            <!-- Puedes quitar el botón si deseas que toda la tarjeta sea clicable -->
+                        </div>
                     </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title text-center"><?php echo $row['nombreProducto'] ?></h5>
-                        <p class="card-text"><?php echo $row['descripcionProducto']?></p>
-                        <a class="btn btn-primary" href="./viewProductsDetails.php?idProducto=<?php echo $row['idProducto'] ?>">Detalles</a>
-                    </div>
-                </div>
+                </a>
             </div>
+
             <?php 
                 $count++;
             } 
@@ -103,45 +166,100 @@ $result = mysqli_query($conexion, $mostrar);
             <button class="btn btn-outline-info rounded" onclick="sendMessage()">Enviar</button>
         </div>
     </div>
-    <button id="toggleChat" class="btn btn-primary rounded" onclick="toggleChat()">Chat</button>
+</main>
+
+
+    <button class="icono boton-flotante" onclick="toggleChat()">
+        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+    </button>
+
     <script>
-    function sendMessage() {
-        var userInput = document.getElementById('user-input').value;
-        if (userInput === '') return;
-        var chatBox = document.getElementById('chat-box');
-        // Mostrar el mensaje del usuario
-        var userMessage = document.createElement('div');
-        userMessage.className = 'message user-message';
-        userMessage.textContent = userInput;
-        chatBox.appendChild(userMessage);
-        // Limpiar el input
-        document.getElementById('user-input').value = '';
-        // Hacer una solicitud al servidor
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '', true); // La solicitud se envía al mismo archivo PHP
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                var botMessage = document.createElement('div');
-                botMessage.className = 'message bot-message';
-                botMessage.textContent = xhr.responseText;
-                chatBox.appendChild(botMessage);
-                // Desplazarse hacia abajo
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }
-        };
-        xhr.send('message=' + encodeURIComponent(userInput));
-    }
-    function toggleChat() {
-        var chatContainer = document.getElementById('chat-container');
-        if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
-            chatContainer.style.display = "block";
-        } else {
-            chatContainer.style.display = "none";
+        function sendMessage() {
+            var userInput = document.getElementById('user-input').value;
+            if (userInput === '') return;
+            var chatBox = document.getElementById('chat-box');
+            // Mostrar el mensaje del usuario
+            var userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.textContent = userInput;
+            chatBox.appendChild(userMessage);
+            // Limpiar el input
+            document.getElementById('user-input').value = '';
+            // Hacer una solicitud al servidor
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '', true); // La solicitud se envía al mismo archivo PHP
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message';
+                    botMessage.textContent = xhr.responseText;
+                    chatBox.appendChild(botMessage);
+                    // Desplazarse hacia abajo
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }
+            };
+            xhr.send('message=' + encodeURIComponent(userInput));
         }
-    }
+
+        function toggleChat() {
+            var chatContainer = document.getElementById('chat-container');
+            if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
+                chatContainer.style.display = "block";
+            } else {
+                chatContainer.style.display = "none";
+            }
+        }
+        document.querySelectorAll('.menu-item > a').forEach(menuLink => {
+        menuLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            const parentLi = this.parentElement;
+            if (parentLi.classList.contains('active')) {
+                parentLi.classList.remove('active');
+            } else {
+                document.querySelectorAll('.menu-item').forEach(li => li.classList.remove('active'));
+                parentLi.classList.add('active');
+            }
+        });
+    });
+    document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', function(event) {
+        event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+        // Alternar la clase activa
+        this.classList.toggle('active');
+
+        // Cambia el ícono del chevron
+        const chevronIcon = this.querySelector('.chevron-icon');
+        if (this.classList.contains('active')) {
+            chevronIcon.setAttribute('name', 'chevron-up-outline');
+        } else {
+            chevronIcon.setAttribute('name', 'chevron-down-outline');
+        }
+    });
+});
+
+document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', function(event) {
+        event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+        // Alternar la clase activa
+        this.classList.toggle('active');
+
+        // Cambia el ícono del chevron
+        const chevronIcon = this.querySelector('.chevron-icon');
+        if (this.classList.contains('active')) {
+            chevronIcon.setAttribute('name', 'chevron-up-outline');
+        } else {
+            chevronIcon.setAttribute('name', 'chevron-down-outline');
+        }
+    });
+});
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="../js/Menu.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="shortcut icon" href="../img/logo.png">
+    <link rel="shortcut icon" href="../img/V2/logo2.png">
     <script>
         $(document).ready(function() {
             $('#searchButton').click(function(event) {
@@ -41,8 +41,6 @@
             console.log('Función verificarSeleccion() ejecutada');
         }
     </script>
-</head>
-<body>
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="../pages/Dashboard.php"><img src="../img/logo.png" alt="" width="50px"></a>
@@ -76,5 +74,8 @@
             <a href="../backend/admin/CerrarSesion.php" class="btn btn-danger">Cerrar sesión</a>
         </div>
     </nav>
+</head>
+<body>
+    
 </body>
 </html>

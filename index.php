@@ -12,7 +12,7 @@
 <body>
   <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
     <div class="text-center">
-      <img src="./assets/img/logo2.png" style="width: 400px;" alt="Imagen" class="rounded-circle img-shadow">
+      <img src="./assets/img/v2/logo2.png" style="width: 400px;" alt="Imagen" class="rounded-circle img-shadow">
       <br><br>
       <a class="boton shadow-lg" href="./assets/pages/userAccount.php">Comenzar</a>
     </div>
