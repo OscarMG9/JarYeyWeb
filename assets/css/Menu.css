@@ -425,3 +425,18 @@ a{
     font-size: 20px; /* Ajusta el tamaño del ícono según tus necesidades */
     color:#011126
 }
+.range-slider {
+    display: flex;
+    align-items: center;
+}
+#price-range {
+    width: 100%;
+    margin: 0 10px;
+}
+.range-slider span {
+    width: 50px;
+    text-align: center;
+}
+.is-hidden {
+    display: none;
+}

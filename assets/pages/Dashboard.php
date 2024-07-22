@@ -60,6 +60,7 @@ $result = mysqli_query($conexion, $mostrar);
     <link rel="stylesheet" href="../css/chat.css">
     <link rel="icon" href="./assets/img/logo2.png" type="image/png">
     <link rel="stylesheet" href="../css/Menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
     <title>Página principal</title>
 </head>
 <body>
@@ -74,11 +75,18 @@ $result = mysqli_query($conexion, $mostrar);
         <nav class="navegacion">
             <ul>
                 <li class="menu-item">
-                    <a href="#">
+                    <a href="#" onclick="toggleContent(document.getElementById('priceFilter'))">
                         <ion-icon name="cash-outline"></ion-icon>
                         <span>Precio</span>
                         <ion-icon class="chevron-icon" name="chevron-down-outline"></ion-icon>
                     </a>
+                    <div class="content is-hidden" id="priceFilter">
+                        <div class="range-slider">
+                            <span id="price-min">$7.50</span>
+                                <div id="price-range"></div>
+                            <span id="price-max">$130.00</span>
+                        </div>
+                    </div>
                 </li>
                 <li>
                     <a href="#">
@@ -162,7 +170,7 @@ $result = mysqli_query($conexion, $mostrar);
     <button class="icono boton-flotante" onclick="toggleChat()">
         <img src="../img/v2/yeyito.png" class="yeyito" alt="">
     </button>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
     <script>
         function sendMessage() {
             var userInput = document.getElementById('user-input').value;
@@ -245,6 +253,40 @@ document.querySelectorAll('.menu-item').forEach(item => {
         }
     });
 });
+var slider = document.getElementById('price-range');
+        var priceMin = document.getElementById('price-min');
+        var priceMax = document.getElementById('price-max');
+
+        noUiSlider.create(slider, {
+            start: [7.5, 130],
+            connect: true,
+            range: {
+                'min': 7.5,
+                'max': 130
+            },
+            step: 0.5,
+            tooltips: [true, true],
+            format: {
+                to: function (value) {
+                    return '$' + value.toFixed(2);
+                },
+                from: function (value) {
+                    return Number(value.replace('$', ''));
+                }
+            }
+        });
+
+        slider.noUiSlider.on('update', function (values, handle) {
+            if (handle === 0) {
+                priceMin.innerHTML = values[0];
+            } else {
+                priceMax.innerHTML = values[1];
+            }
+        });
+
+        function toggleContent(content) {
+            content.classList.toggle('is-hidden');
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
