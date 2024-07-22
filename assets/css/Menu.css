@@ -55,7 +55,7 @@ body{
     justify-content: space-between;
     top: auto;
     left: 0;
-    height: 91%;
+    height: 100%;
     width: 250px; /* Ajusta el ancho según tus necesidades */
     overflow: hidden;
     padding: 20px 15px;
@@ -171,7 +171,9 @@ body{
 /*---------------> Usuario*/
 .barra-lateral .usuario{
     width: 100%;
+    height: auto;
     display: flex;
+    margin-bottom: 25%;
 }
 .barra-lateral .usuario img{
     width: 50px;
@@ -315,7 +317,7 @@ a{
 }
 
 .boton-flotante:hover{
-    background-color: #D5EDF2;
+    background-color: #ffffff;
     color: #011126;
 }
 
@@ -402,4 +404,24 @@ a{
 
 .card-text{
     left: 5px;
+}
+
+.card-body{
+    background: #011126;
+    color: #5CC8F2;
+    height: 100%;
+}
+
+.yeyito{
+    position: relative;
+    width: 30px; /* Ajusta el ancho del botón según tus necesidades */
+    height: 30px; /* Ajusta la altura del botón según tus necesidades */
+    font-size: 20px; /* Ajusta el tamaño del ícono según tus necesidades */
+}
+.yeyito:hover{
+    position: relative;
+    width: 32px; /* Ajusta el ancho del botón según tus necesidades */
+    height: 32px; /* Ajusta la altura del botón según tus necesidades */
+    font-size: 20px; /* Ajusta el tamaño del ícono según tus necesidades */
+    color:#011126
 }

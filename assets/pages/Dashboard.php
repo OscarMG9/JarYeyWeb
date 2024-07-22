@@ -79,22 +79,11 @@ $result = mysqli_query($conexion, $mostrar);
                         <span>Precio</span>
                         <ion-icon class="chevron-icon" name="chevron-down-outline"></ion-icon>
                     </a>
-                    <div class="precio-range-container">
-                        <label for="precio-range">Rango de Precio:</label>
-                        <input type="range" id="precio-range" name="precio-range" min="0" max="1000" step="10" value="500">
-                        <span id="precio-valor">500</span>
-                    </div>
                 </li>
                 <li>
                     <a href="#">
-                        <ion-icon name="star-outline"></ion-icon>
-                        <span>Starred</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="paper-plane-outline"></ion-icon>
-                        <span>Sent</span>
+                        <ion-icon name="options-outline"></ion-icon>
+                        <span>Presentación</span>
                     </a>
                 </li>
                 <li>
@@ -142,6 +131,7 @@ $result = mysqli_query($conexion, $mostrar);
                             <img src="data:<?php echo $row['tipo']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" class="card-img-top" alt="..." style="height: 290px;">
                         </div>
                         <div class="card-body text-center">
+                            <br>
                             <h5 class="card-title text-center"><?php echo $row['nombreProducto'] ?></h5>
                             <p class="card-text"><?php echo $row['descripcionProducto']?></p>
                             <p class="card-text ">$<?php echo $row['precio']?></p>
@@ -170,7 +160,7 @@ $result = mysqli_query($conexion, $mostrar);
 
 
     <button class="icono boton-flotante" onclick="toggleChat()">
-        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+        <img src="../img/v2/yeyito.png" class="yeyito" alt="">
     </button>
 
     <script>
