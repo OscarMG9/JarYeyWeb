@@ -1,0 +1,19 @@
+body {
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: #D5EDF2;
+    color: #011126;
+}
+
+.btn-agregar {
+    background-color: #5CC8F2;
+    color: #011126;
+    border: 2px solid #011126; /* Añadido borde */
+    border-radius: 5px; /* Añadido borde redondeado, puedes ajustar según sea necesario */
+    padding: 5px 10px; /* Añadido padding, puedes ajustar según sea necesario */
+}
+
+.btn-reporte{
+    background-color: #011126;
+    color: #D5EDF2
+}

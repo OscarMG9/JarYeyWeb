@@ -50,7 +50,7 @@
         }
         .back-button {
             position: absolute;
-            bottom: 130px; /* Ajusta la distancia desde la parte inferior según necesites */
+            bottom: 120px; /* Ajusta la distancia desde la parte inferior según necesites */
             left: 50%;
             transform: translateX(-50%);
             color: #fff; /* Color del texto */

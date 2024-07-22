@@ -1,58 +1,36 @@
-<?php include("../conexion.php")?>
-
 <?php
+include("../conexion.php");
 
-$nombreArticulo= $_POST['nombreArticulo'];
+$nombreArticulo = $_POST['nombreArticulo'];
 $descripcion = $_POST['descripcionArticulo'];
 $cantidad = $_POST['cantidadArticulos'];
 $presentacion = $_POST['presentacion'];
-$imagen = $_POST['imagen']['name'];
-$precio  = $_POST['precioProducto'];
+$precio = $_POST['precioProducto'];
 
-if (isset($_REQUEST['guardar'])) {
-    if (isset($_FILES['imagen']['name'])) {
-        $tipoArchivo = $_FILES['imagen']['type'];
-        $nombreArchivo = $_FILES['imagen']['name'];
-        $tamanoArchivo = $_FILES['imagen']['size'];
-        $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
-        $binariosImagen = fread($imagenSubida, $tamanoArchivo);
-        $binariosImagen =  mysqli_escape_string($conexion, $binariosImagen);
+$response = array();
 
-        $query = "INSERT INTO productos(nombreProducto, precio, cantidadProducto, descripcionProducto, nombreImagen, imagen, tipo, idPresentacion) values
-                                        ('$nombreArticulo','$precio','$cantidad','$descripcion','$nombreArchivo','$binariosImagen','$tipoArchivo','$presentacion')";
+if (isset($_FILES['imagen']['name']) && !empty($_FILES['imagen']['name'])) {
+    $tipoArchivo = $_FILES['imagen']['type'];
+    $nombreArchivo = $_FILES['imagen']['name'];
+    $tamanoArchivo = $_FILES['imagen']['size'];
+    $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
+    $binariosImagen = fread($imagenSubida, $tamanoArchivo);
+    $binariosImagen = mysqli_escape_string($conexion, $binariosImagen);
 
-        $res = mysqli_query($conexion, $query);
+    $query = "INSERT INTO productos(nombreProducto, precio, cantidadProducto, descripcionProducto, nombreImagen, imagen, tipo, idPresentacion) VALUES
+                                    ('$nombreArticulo','$precio','$cantidad','$descripcion','$nombreArchivo','$binariosImagen','$tipoArchivo','$presentacion')";
 
-        header("location: ../../pages/FormInsertProducts.php");
+    if (mysqli_query($conexion, $query)) {
+        $response['status'] = 'success';
+        $response['message'] = 'Producto insertado correctamente.';
+    } else {
+        $response['status'] = 'error';
+        $response['message'] = 'Error al insertar el producto.';
     }
-}
-
-
-if($res){
-    echo "Insertado correctamente";
 } else {
-    echo "Error";
+    $response['status'] = 'warning';
+    $response['message'] = 'No se ha seleccionado una imagen.';
 }
 
+echo json_encode($response);
 ?>
-
-
-
-
-
-
-
-                //     if(isset($_REQUEST['guardar'])){
-                //         if(isset($_FILES['foto']['name'])){
-                //             $tipoArchivo=$_FILES['foto']['type'];
-                //             $nombreArchivo=$_FILES['foto']['name'];
-                //             $tamanoArchivo=$_FILES['foto']['size'];
-                //             $imagenSubida=fopen($_FILES['foto']['tmp_name'],'r');
-                //             $binariosImagen=fread($imagenSubida, $tamanoArchivo);
-                //             include_once "db_jaryey.php";
-                //             $binariosImagen=mysqli_escape_string($conexion, $binariosImagen);
-                //             $query="INSERT INTO pr"
-                //             $res=mysqli_query($conexion, $query);
-                //         }
-                //     }
-                // 
