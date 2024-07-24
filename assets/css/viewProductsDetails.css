@@ -24,7 +24,7 @@ body {
     padding: 30px;
     width: 90%;
     max-width: 900px;
-    height: 93%;
+    height: auto;
 }
 .container h1 {
     background: #011126; /* Color sólido más fuerte */
