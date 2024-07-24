@@ -1,3 +1,4 @@
+<?php include("../backend/conexion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,6 +55,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 20px;
         }
         .image-upload input {
             display: none;
@@ -199,77 +201,58 @@
         <div class="toast-body" id="toast-error-message"></div>
     </div>
 
-    <div class="toast" id="toast-warning" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; bottom: 20px; right: 20px;">
-        <div class="toast-header">
-            <strong class="me-auto">Advertencia</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body" id="toast-warning-message"></div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
     <script>
         function previewImage(event) {
+            const preview = document.getElementById('image-preview');
+            const previewImg = document.getElementById('image-preview-img');
+            const previewText = document.getElementById('image-preview-text');
             const file = event.target.files[0];
-            const imagePreview = document.getElementById('image-preview-img');
-            const imagePreviewText = document.getElementById('image-preview-text');
-            const imagePreviewContainer = document.getElementById('image-preview');
 
-            if (file && file.type === 'image/png') {
+            if (file) {
                 const reader = new FileReader();
-
-                reader.onload = function() {
-                    imagePreview.src = reader.result;
-                    imagePreview.style.display = 'block';
-                    imagePreviewText.style.display = 'none'; // Ocultar el mensaje
-                };
-
+                reader.onload = function(e) {
+                    previewImg.src = e.target.result;
+                    previewImg.style.display = 'block';
+                    previewText.style.display = 'none';
+                }
                 reader.readAsDataURL(file);
-                imagePreviewContainer.style.display = 'flex'; // Mostrar vista previa
             } else {
-                alert('Por favor, seleccione una imagen en formato PNG.');
-                event.target.value = ''; // Limpiar el campo de entrada
-                imagePreview.style.display = 'none'; // Ocultar la vista previa
-                imagePreviewText.style.display = 'block'; // Mostrar el mensaje
+                previewImg.src = '';
+                previewImg.style.display = 'none';
+                previewText.style.display = 'block';
             }
         }
 
         document.getElementById('product-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
+            event.preventDefault(); // Prevent form submission
 
-            fetch('../backend/admin/insert.php', {
-                method: 'POST',
-                body: new FormData(this)
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: this.method,
+                body: formData
             })
             .then(response => response.json())
             .then(data => {
-                if (data.status === 'success') {
-                    showToast('success', data.message);
-                    document.getElementById('product-form').reset();
-                    document.getElementById('image-preview-img').style.display = 'none'; // Ocultar la vista previa de la imagen
-                    document.getElementById('image-preview-text').style.display = 'block'; // Mostrar el mensaje
+                if (data.success) {
+                    showToast('toast-success', data.message);
                 } else {
-                    showToast('error', data.message);
+                    showToast('toast-error', data.message);
                 }
             })
             .catch(error => {
-                showToast('error', 'Ha ocurrido un error');
+                showToast('toast-error', 'Ha ocurrido un error al enviar el formulario.');
             });
         });
 
-        function showToast(type, message) {
-            var toastId = '#toast-' + type;
-            var toastMessageId = '#toast-' + type + '-message';
-            $(toastMessageId).text(message);
-            var toastElement = document.querySelector(toastId);
-            var toast = new bootstrap.Toast(toastElement, {
-                delay: 5000 // Duración del toast en milisegundos (5 segundos)
-            });
+        function showToast(toastId, message) {
+            const toast = new bootstrap.Toast(document.getElementById(toastId));
+            document.getElementById(`${toastId}-message`).innerText = message;
             toast.show();
         }
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -56,11 +56,11 @@ $result = mysqli_query($conexion, $mostrar);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- <link rel="stylesheet" href="../css/fondoDashboard.css"> -->
-    <!-- <link rel="stylesheet" href="fondoInventario.css"> -->
+    <link rel="stylesheet" href="../css/fondoDashboard.css">
     <link rel="stylesheet" href="../css/chat.css">
     <link rel="icon" href="./assets/img/logo2.png" type="image/png">
     <link rel="stylesheet" href="../css/Menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
     <title>Página principal</title>
 </head>
 <body>
@@ -75,27 +75,23 @@ $result = mysqli_query($conexion, $mostrar);
         <nav class="navegacion">
             <ul>
                 <li class="menu-item">
-                    <a href="#">
+                    <a href="#" onclick="toggleContent(document.getElementById('priceFilter'))">
                         <ion-icon name="cash-outline"></ion-icon>
                         <span>Precio</span>
                         <ion-icon class="chevron-icon" name="chevron-down-outline"></ion-icon>
                     </a>
-                    <div class="precio-range-container">
-                        <label for="precio-range">Rango de Precio:</label>
-                        <input type="range" id="precio-range" name="precio-range" min="0" max="1000" step="10" value="500">
-                        <span id="precio-valor">500</span>
+                    <div class="content is-hidden" id="priceFilter">
+                        <div class="range-slider">
+                            <span id="price-min">$7.50</span>
+                                <div id="price-range"></div>
+                            <span id="price-max">$130.00</span>
+                        </div>
                     </div>
                 </li>
                 <li>
                     <a href="#">
-                        <ion-icon name="star-outline"></ion-icon>
-                        <span>Starred</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="paper-plane-outline"></ion-icon>
-                        <span>Sent</span>
+                        <ion-icon name="options-outline"></ion-icon>
+                        <span>Presentación</span>
                     </a>
                 </li>
                 <li>
@@ -143,6 +139,7 @@ $result = mysqli_query($conexion, $mostrar);
                             <img src="data:<?php echo $row['tipo']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" class="card-img-top" alt="..." style="height: 290px;">
                         </div>
                         <div class="card-body text-center">
+                            <br>
                             <h5 class="card-title text-center"><?php echo $row['nombreProducto'] ?></h5>
                             <p class="card-text"><?php echo $row['descripcionProducto']?></p>
                             <p class="card-text ">$<?php echo $row['precio']?></p>
@@ -171,9 +168,9 @@ $result = mysqli_query($conexion, $mostrar);
 
 
     <button class="icono boton-flotante" onclick="toggleChat()">
-        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+        <img src="../img/v2/yeyito.png" class="yeyito" alt="">
     </button>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
     <script>
         function sendMessage() {
             var userInput = document.getElementById('user-input').value;
@@ -256,6 +253,40 @@ document.querySelectorAll('.menu-item').forEach(item => {
         }
     });
 });
+var slider = document.getElementById('price-range');
+        var priceMin = document.getElementById('price-min');
+        var priceMax = document.getElementById('price-max');
+
+        noUiSlider.create(slider, {
+            start: [7.5, 130],
+            connect: true,
+            range: {
+                'min': 7.5,
+                'max': 130
+            },
+            step: 0.5,
+            tooltips: [true, true],
+            format: {
+                to: function (value) {
+                    return '$' + value.toFixed(2);
+                },
+                from: function (value) {
+                    return Number(value.replace('$', ''));
+                }
+            }
+        });
+
+        slider.noUiSlider.on('update', function (values, handle) {
+            if (handle === 0) {
+                priceMin.innerHTML = values[0];
+            } else {
+                priceMax.innerHTML = values[1];
+            }
+        });
+
+        function toggleContent(content) {
+            content.classList.toggle('is-hidden');
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

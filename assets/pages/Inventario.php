@@ -1,5 +1,8 @@
-<?php include("../navigation/navbarCopy.php")?>
-<?php include("../backend/conexion.php")?>
+<?php 
+session_start(); // Asegúrate de iniciar la sesión
+include("../navigation/navbarCopy.php");
+include("../backend/conexion.php");
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -8,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de Productos</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <!-- Custom CSS -->
@@ -176,10 +180,36 @@
         </div>
     </div>
 
+    <!-- Toast para notificaciones -->
+    <div aria-live="polite" aria-atomic="true" style="position: relative;">
+        <div class="toast position-fixed bottom-0 right-0 m-3" style="z-index: 11;" data-delay="5000">
+            <div class="toast-header">
+                <strong class="mr-auto">Notificación</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                <?php
+                if (isset($_SESSION['mensaje'])) {
+                    echo $_SESSION['mensaje'];
+                    unset($_SESSION['mensaje']);
+                    unset($_SESSION['tipo_mensaje']);
+                } else {
+                    echo "No hay mensajes.";
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- DataTables JS -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('#tabla-productos').DataTable({
@@ -204,6 +234,11 @@
                     }
                 }
             });
+
+            // Mostrar el toast si existe
+            if ($('.toast .toast-body').text().trim() !== "No hay mensajes.") {
+                $('.toast').toast('show');
+            }
         });
     </script>
 </body>
