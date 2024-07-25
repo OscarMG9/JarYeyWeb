@@ -1,97 +1,106 @@
-<?php include("../backend/conexion.php");
-
-    $idProducto = $_GET['idProducto'];
-    $query_producto = "SELECT p.idProducto, p.nombreProducto, p.descripcionProducto, p.precio, p.cantidadProducto, p.nombreImagen, p.imagen, p.tipo, pr.nombrePresentacion FROM productos as p INNER JOIN presentacion as pr ON p.idPresentacion = pr.idPresentacion WHERE idProducto = '$idProducto'";
-    $resultado_producto = mysqli_query($conexion, $query_producto);
-    $producto = mysqli_fetch_assoc($resultado_producto);
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/viewProductsDetails.css">
+        <title>Generar reporte</title>
+        <link rel="stylesheet" href="../css/fondoDashboard.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="icon" href="./assets/img/logo2.png" type="image/png">
-        <title>Detalles</title>
     </head>
     <body>
-        <div class="container">
-            <h1>Producto: <?php echo $producto['nombreProducto']?></h1>
-            <div class="row my-5">
-                <div class="col-12">
-                    <div class="row justify-content-center">
-                        <div class="card rounded-3 fondo" style="width: 60rem;">
-                            <div class="row p-2">
-                                <div class="col-12">
-                                    <div class="row p-3 m-3 bg-primary">
-                                        <div class="col-4 rounded-start">
-                                            <div class="text-center"> <!-- Centra el contenido dentro de la columna -->
-                                                <img src="data:<?php echo $producto['tipo']; ?>;base64,<?php echo base64_encode($producto['imagen']); ?>" class="card-img-top rounded mx-auto d-block" alt="<?php echo $producto['nombreProducto']?>" style="height: 290px;">
-                                            </div>
-                                        </div>
-                                        <div class="col-8 rounded-end">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="row mb-3">
-                                                            <div class="col-3">
-                                                                <label for="">Articulo:</label>
-                                                            </div>
-                                                            <div class="col-9">
-                                                                <input type="text" name="" id="" class="leyenda form-control fw-bold" value="<?php echo $producto['nombreProducto']?>" disabled>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-3">
-                                                            <div class="col-3">
-                                                                <label for="">Descripción:</label>
-                                                            </div>
-                                                            <div class="col-9">
-                                                                <input type="text" name="" id="" class="form-control fw-bold" value="<?php echo $producto['descripcionProducto']?>" disabled>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-3">
-                                                            <div class="col-3">
-                                                                <label for="">Presentación:</label>
-                                                            </div>
-                                                            <div class="col-9">
-                                                                <input type="text" name="" id="" class="form-control fw-bold" value="<?php echo $producto['nombrePresentacion']?>" disabled>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-3">
-                                                            <div class="col-3">
-                                                                <label for="">Precio:</label>
-                                                            </div>
-                                                            <div class="col-9">
-                                                                <input type="text" name="" id="" class="form-control fw-bold" value="<?php echo "$"?><?php echo $producto['precio']?><?php echo " MXN"?>" disabled>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-3">
-                                                            <div class="col-3">
-                                                                <label for="">Cantidad:</label>
-                                                            </div>
-                                                            <div class="col-9">
-                                                                <input type="text" name="" id="" class="form-control fw-bold" value="<?php echo $producto['cantidadProducto']?>" disabled>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row text-center mb-3">
-                                    <div class="col-12">
-                                        <a class="btn btn-danger" href="./Dashboard.php">Regresar</a>
-                                    </div>
-                                </div>
+
+        <div class="container mt-5">
+            <h1 class="my-2 bg-warning text-dark text-center rounded">Generar reporte de ventas</h1>
+            <form method="post" action="">
+                <h2 class="my-2">Selecciona un rango de fechas</h2>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="fecha_inicio">Fecha de Inicio:</label>
+                                <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio">
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="fecha_fin">Fecha de Fin:</label>
+                                <input type="date" class="form-control" id="fecha_fin" name="fecha_fin">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+                <a href="../pages/Inventario.php" class="btn btn-secondary">Regresar</a>
+            </form>
+
+            <?php
+            include("../backend/conexion.php");
+
+            // Verificar si se han enviado las fechas desde el formulario
+            if (isset($_POST['fecha_inicio']) && isset($_POST['fecha_fin'])) {
+                // Obtener las fechas enviadas desde el formulario
+                $fecha_inicio = $_POST['fecha_inicio'];
+                $fecha_fin = $_POST['fecha_fin'];
+
+                // Consulta SQL para obtener las ventas dentro del rango de fechas especificado
+                $sql = "SELECT productos.nombreProducto, ventas.precio_producto, ventas.cantidad_producto, ventas.Dinero_recibido, ventas.Cambio, ventas.precio_total, cuentaspersonal.Usuario FROM ventas INNER JOIN cuentaspersonal ON ventas.idCuenta = cuentaspersonal.idCuenta 
+                INNER JOIN productos ON ventas.idProducto = productos.idProducto
+                WHERE fecha_venta BETWEEN '$fecha_inicio' AND '$fecha_fin'";
+
+                // Ejecutar la consulta
+                $result = $conexion->query($sql);
+
+                // Verificar si hubo algún error en la consulta SQL
+                if (!$result) {
+                    echo "<div class='alert alert-danger' role='alert'>Error al ejecutar la consulta: " . $conexion->error . "</div>";
+                } else {
+                    // Verificar si hay resultados
+                    if ($result->num_rows > 0) {
+                        // Mostrar los datos de las ventas
+                        echo "<h2 class='mt-4'>Ventas para el rango de fechas $fecha_inicio - $fecha_fin:</h2>";
+                        echo "<div class='table-responsive'>
+                                <table class='table mt-3 rounded'>
+                                    <thead class='thead-dark'>
+                                        <tr>
+                                            <th>Producto Vendido</th>
+                                            <th>Precio del Producto</th>
+                                            <th>Cantidad vendida</th>
+                                            <th>Dinero Recibido</th>
+                                            <th>Cambio a dar</th>
+                                            <th>Total pagado</th>
+                                            <th>Lo vendio:</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>";
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                    <td>" . $row["nombreProducto"] . "</td>
+                                    <td>" . $row["precio_producto"] . "</td>
+                                    <td>" . $row["cantidad_producto"] . "</td>
+                                    <td>" . $row["Dinero_recibido"] . "</td>
+                                    <td>" . $row["Cambio"] . "</td>
+                                    <td>" . $row["precio_total"] . "</td>
+                                    <td>" . $row["Usuario"] . "</td>
+                                </tr>";
+                        }
+                        echo "</tbody>
+                            </table>
+                        </div>";
+                        echo "<br>";
+                        echo "<div class='text-center'>
+                            <button class='btn btn-primary' onclick='window.print()'>Imprimir Resultados</button>
+                        </div>";
+                    } else {
+                        echo "<div class='alert alert-info mt-4' role='alert'>No se encontraron ventas para el rango de fechas especificado.</div>";
+                    }
+                }
+
+                // Cerrar conexión
+                $conexion->close();
+            }
+            ?>
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     </body>
 </html>

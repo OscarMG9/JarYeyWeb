@@ -50,6 +50,7 @@
             }
         }
     }
+    include("../navigation/navbar.php");
 ?>
 
 <!DOCTYPE html>
@@ -59,19 +60,60 @@
     <title>Carrito de Ventas</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/fondoDashboard.css">
-    <link rel="icon" href="./assets/img/logo2.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="../css/Menu.css">
+    <link rel="icon" href="./assets/img/v2/logo2.png" type="image/png">
 </head>
 <body>
+
+    <div class="barra-lateral">
+            <div class="mb-2">
+                <div class="nombre-pagina">
+                    <img src="../img/v2/logo2.png" class="logo">
+                    <span>JARYEY</span>
+                </div>
+            </div>
+            <nav class="navegacion">
+                <ul>
+                    <li>
+                        <a href="./Inventario.php">
+                            <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                            <span>Inventario</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../venta/carrito_venta.php">
+                            <ion-icon name="cart-outline"></ion-icon>
+                            <span>Carrito</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div>
+                <div class="usuario">
+                    <img src="../img/v2/admin.png" alt="">
+                    <div class="info-usuario">
+                        <div class="nombre-email">
+                            <span class="nombre">Jhampier</span>
+                            <span class="email">jhampier@gmail.com</span>
+                        </div>
+                        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <main>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="my-2 bg-warning text-dark text-center rounded">Seleccionar Producto</h2>
+                <h1 class="my-2">Seleccionar Producto</h1>
                 <form action="../backend/admin/venta/venta.php" id="formulario-venta" method="POST">
                     <div class="row">
                         <div class="col-4 form-group">
                             <label for="idProducto">Producto:</label>
-                            <select class="form-control" id="idProducto" name="idProducto" placeholder="Seleccione un producto" onchange="actualizarDatosProducto()">
+                            <select class="form-control" id="idProducto" name="idProducto" placeholder="Seleccione un producto" onchange="actualizarDatosProducto()" style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;">
                                 <option value="">Seleccione un producto</option>
                                 <?php
                                     $consulta_productos = "SELECT idProducto, nombreProducto, precio FROM productos";
@@ -86,7 +128,7 @@
                         </div>
                         <div class="col-4 form-group">
                             <label class="text-dark">Vendedor</label>
-                            <select name="idRole" id="idRole" class="form-control">
+                            <select name="idRole" id="idRole" class="form-control" style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;">
                                 <option value="idRole">Elige una opción</option>
                                 <?php
                                     $query = "SELECT idRole, usuario FROM cuentaspersonal";
@@ -102,47 +144,48 @@
                             <?php
                                 $fecha_actual = date("Y-m-d");
                             ?>
-                            <input type="date" class="form-control" id="fecha_venta" name="fecha_venta" min="<?php echo $fecha_actual; ?>" required>
+                            <input type="date" class="form-control" id="fecha_venta" name="fecha_venta" min="<?php echo $fecha_actual; ?>" style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4 form-group">
                             <label for="costo_producto">Costo del Producto:</label>
-                            <input type="text" class="form-control" id="costo_producto" name="costo_producto" readonly>
+                            <input type="text" class="form-control" id="costo_producto" name="costo_producto" style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;" readonly >
                         </div>
                         <div class="col-4 form-group">
                             <label for="cantidad_disponible">Cantidad Disponible:</label>
-                            <input type="text" class="form-control" id="cantidad_disponible" name="cantidad_disponible" value="<?php echo $cantidad_disponible; ?>" readonly>
+                            <input type="text" class="form-control" id="cantidad_disponible" name="cantidad_disponible" value="<?php echo $cantidad_disponible; ?>" style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;" readonly>
                         </div>
                         <div class="col-4 form-group">
                             <label for="cantidad">Cantidad a vender:</label>
-                            <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" oninput="calcularPrecioFinal()" required>
+                            <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" oninput="calcularPrecioFinal()" style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4">
                             <label for="precio_total">Precio Total:</label>
-                            <input type="text" class="form-control" id="precio_total" name="precio_total" readonly>
+                            <input type="text" class="form-control" id="precio_total" name="precio_total" style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;" readonly>
                         </div>
                         <div class="col-4">
                             <label for="cantidad_recibida">Cantidad Recibida:</label>
-                            <input type="number" class="form-control" id="cantidad_recibida" name="cantidad_recibida" min="0" step="0.01" oninput="calcularCambio()" required>
+                            <input type="number" class="form-control" id="cantidad_recibida" name="cantidad_recibida" min="0" step="0.01" oninput="calcularCambio()"style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;"required>
                         </div>
                         <div class="col-4">
                             <label for="cambio">Cambio:</label>
-                            <input type="text" class="form-control" id="cambio" name="cambio" readonly>
+                            <input type="text" class="form-control" id="cambio" name="cambio"style="border-bottom: 2px solid #0D0D0D;background-color: #ffffff;" readonly>
                         </div>
                     </div>
                     <br>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success" name="vender">Vender</button>
-                        <button type="reset" class="btn btn-dark">Vaciar venta</button>
-                        <a href="../pagesEmpleado/Dashboard.php" class="btn btn-danger">Regresar</a>
+                        <button type="submit" class="botoncito" name="vender">Vender</button>
+                        <button type="reset" class="botoncito">Vaciar venta</button>
+                        <a href="../pagesEmpleado/Dashboard.php" class="btn botoncito">Regresar</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    </main>
     <script>
         function actualizarDatosProducto() {
             var idProducto = document.getElementById('idProducto').value;
@@ -204,4 +247,9 @@
         // Establecer la fecha mínima en el campo de fecha de venta
         document.getElementById("fecha_venta").setAttribute("min", formattedDate);
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
 </html>
