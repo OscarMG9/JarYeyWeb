@@ -34,7 +34,7 @@ include("../navigation/navbar.php");
         <nav class="navegacion">
             <ul>
                 <li>
-                    <a href="./Inventario.php">
+                    <a href="../pages/Inventario.php">
                         <ion-icon name="file-tray-stacked-outline"></ion-icon>
                         <span>Inventario</span>
                     </a>
