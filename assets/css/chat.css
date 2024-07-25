@@ -10,7 +10,7 @@
 }
 
 .chat-container {
-    background-color: #3f3f3f;
+    background-color: #1d1c1c;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
@@ -45,12 +45,12 @@
 }
 
 .bot-message {
-    background-color: #bbd7fd;
+    background-color: #55b6cc;
     align-self: flex-start;
 }
 
 .user-message {
-    background-color: #b7ffef;
+    background-color: #D5EDF2;
     align-self: flex-end;
 }
 
@@ -61,12 +61,18 @@ input[type="text"] {
     border-radius: 10px;
 }
 
-button {
+.boton {
     width: 70px;
     padding: 10px;
     border: none;
     border-radius: 0 0 10px 0;
-    background-color: #007bff;
-    color: #fff;
+    background: #011126;
     cursor: pointer;
+    color: #5CC8F2;
+    cursor: pointer;
+}
+.boton:hover{
+    text-decoration: none;
+    background-color: #D5EDF2;
+    color: #011126;
 }

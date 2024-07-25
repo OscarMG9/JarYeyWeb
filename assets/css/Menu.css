@@ -267,7 +267,7 @@ main.min-main{
     align-items: center;
     justify-content: center;
     padding: 10px 15px; /* Ajusta el padding según tus necesidades */
-    border-radius: 5px; /* Ajusta el radio del borde según tus necesidades */
+    border-radius: 0px 5px 5px 0px; /* Ajusta el radio del borde según tus necesidades */
     font-size: 16px; /* Ajusta el tamaño de fuente según tus necesidades */
     background: #011126;
     cursor: pointer;
@@ -276,7 +276,7 @@ main.min-main{
 
 .boton:hover{
     text-decoration: none;
-    background-color: #D5EDF2;
+    background-color: #5CC8F2;
     color: #011126;
 }
 a{

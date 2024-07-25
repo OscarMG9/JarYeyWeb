@@ -74,26 +74,7 @@ $result = mysqli_query($conexion, $mostrar);
         </div>
         <nav class="navegacion">
             <ul>
-                <li class="menu-item">
-                    <a href="#" onclick="toggleContent(document.getElementById('priceFilter'))">
-                        <ion-icon name="cash-outline"></ion-icon>
-                        <span>Precio</span>
-                        <ion-icon class="chevron-icon" name="chevron-down-outline"></ion-icon>
-                    </a>
-                    <div class="content is-hidden" id="priceFilter">
-                        <div class="range-slider">
-                            <span id="price-min">$7.50</span>
-                                <div id="price-range"></div>
-                            <span id="price-max">$130.00</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="options-outline"></ion-icon>
-                        <span>Presentación</span>
-                    </a>
-                </li>
+                
                 <li>
                     <a  href="./Inventario.php">
                         <ion-icon name="file-tray-stacked-outline"></ion-icon>
@@ -160,8 +141,12 @@ $result = mysqli_query($conexion, $mostrar);
             <div class="message bot-message">Hola, ¿en qué puedo ayudarte hoy?</div>
         </div>
         <div class="container mb-3">
-            <input class="mt-3" type="text" id="user-input" placeholder="Escribe tu mensaje...">
-            <button class="btn btn-outline-info rounded" onclick="sendMessage()">Enviar</button>
+        <div class="input-group">
+            <input type="text" class="form-control" id="user-input" placeholder="Escribe tu mensaje...">
+            <div class="input-group-append">
+                <button class="boton" onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
         </div>
     </div>
 </main>
@@ -287,6 +272,13 @@ var slider = document.getElementById('price-range');
         function toggleContent(content) {
             content.classList.toggle('is-hidden');
         }
+
+        // Evento para detectar la tecla Enter
+        document.getElementById('user-input').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
