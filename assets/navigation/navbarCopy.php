@@ -27,7 +27,6 @@
 <body>
     <nav class="navbar navbar-expand-lg navbarcito">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../pages/Dashboard.php"><img src="../img/v2/logo2.png" alt="" width="50px"></a>
             <a href="../backend/admin/CerrarSesion.php" class="btn">
                 <i class="fas fa-sign-out-alt"></i> Cerrar sesión
             </a>

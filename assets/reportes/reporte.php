@@ -32,7 +32,7 @@ include("../navigation/navbar.php");
         <nav class="navegacion">
             <ul>
                 <li>
-                    <a  href="../../../pages/Dashboard.php">
+                    <a  href="../pages/Dashboard.php">
                         <ion-icon name="home-outline"></ion-icon>
                         <span>Inicio</span>
                     </a>
