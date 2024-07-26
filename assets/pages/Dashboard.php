@@ -124,7 +124,6 @@ $result = mysqli_query($conexion, $mostrar);
                             <h5 class="card-title text-center"><?php echo $row['nombreProducto'] ?></h5>
                             <p class="card-text"><?php echo $row['descripcionProducto']?></p>
                             <p class="card-text ">$<?php echo $row['precio']?></p>
-                            <!-- Puedes quitar el botón si deseas que toda la tarjeta sea clicable -->
                         </div>
                     </div>
                 </a>

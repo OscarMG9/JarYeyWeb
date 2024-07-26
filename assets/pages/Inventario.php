@@ -11,12 +11,14 @@ include("../backend/conexion.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de Productos</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/fondoInventario.css">
+    <link rel="stylesheet" href="../css/Menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <style>
@@ -114,6 +116,44 @@ include("../backend/conexion.php");
     </style>
 </head>
 <body style="background-color: #D5EDF2;">
+<div class="barra-lateral">
+        <div class="mb-2">
+            <div class="nombre-pagina">
+                <img src="../img/v2/logo2.png" class="logo">
+                <span>JARYEY</span>
+            </div>
+        </div>
+        <nav class="navegacion">
+            <ul>
+                
+                <li>
+                    <a  href="./Inventario.php">
+                        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                        <span>Inventario</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../venta/carrito_venta.php">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <div class="usuario">
+                <img src="../img/v2/admin.png" alt="">
+                <div class="info-usuario">
+                    <div class="nombre-email">
+                        <span class="nombre">Jhampier</span>
+                        <span class="email">jhampier@gmail.com</span>
+                    </div>
+                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
     <h2 class="text-center mt-4" style="color: #011126;">Inventario</h2>
     <div class="container mt-5">
         <div class="row">
@@ -202,7 +242,12 @@ include("../backend/conexion.php");
             </div>
         </div>
     </div>
-
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="../js/Menu.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Bootstrap JS -->
