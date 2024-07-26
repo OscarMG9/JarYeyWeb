@@ -97,7 +97,7 @@
                             <div class="d-flex flex-column align-items-center">
                                 <img src="../img/v2/employe.png" class="d-block w-25 rounded-circle mt-3" alt="Empleado">
                                 <h5 class="mt-4">Empleado</h5>
-                                <form id="employeeForm" action="../backend/empleado/logueo.php" method="POST" class="text-center" onsubmit="return validarUsuario('emp');">
+                                <form id="employeeForm" action="../backend/admin/logueo.php" method="POST" class="text-center" onsubmit="return validarUsuario('emp');">
                                     <div class="form-group">
                                         <label for="usuario">Nombre usuario:</label>
                                         <input type="text" id="usuarioE" name="usuario" class="form-control bg-transparent border border-dark" required>

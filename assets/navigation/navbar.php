@@ -68,7 +68,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbarcito fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../pages/Dashboard.php"><img src="../img/v2/logo2.png" alt="" width="50px"></a>
+            <!-- <a class="navbar-brand" href="../pages/Dashboard.php"><img src="../img/v2/logo2.png" alt="" width="50px"></a> -->
+             <a>NEW BYTE</a>
             <form id="searchForm" class="d-flex" role="search">
                 <div class="row">
                     <div class="col-sm-6">

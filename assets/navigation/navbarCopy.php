@@ -27,6 +27,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbarcito">
         <div class="container-fluid">
+        <a>NEW BYTE</a>
             <a href="../backend/admin/CerrarSesion.php" class="btn">
                 <i class="fas fa-sign-out-alt"></i> Cerrar sesión
             </a>

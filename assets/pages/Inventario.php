@@ -156,10 +156,8 @@ include("../backend/conexion.php");
                 <img src="../img/v2/admin.png" alt="">
                 <div class="info-usuario">
                     <div class="nombre-email">
-                        <span class="nombre">Jhampier</span>
-                        <span class="email">jhampier@gmail.com</span>
+                        <span class="nombre"> Admin</span>
                     </div>
-                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
                 </div>
             </div>
         </div>
@@ -213,17 +211,6 @@ include("../backend/conexion.php");
                         <div class="button-container">
                             <a class="btn btn-agregar" href="./FormInsertProducts.php">
                                 <i class="bi bi-plus-lg icon-colored"></i> Agregar
-                            </a>
-                        </div>
-                        <div class="botones-reportes mt-3">
-                            <a class="btn btn-reporte" href="../reportes/reporte.php"> <!-- Aplicada clase btn-reporte -->
-                                <i class="bi bi-file-earmark-text icon-colored2"></i> Reporte
-                            </a>
-                        </div>
-                        <br>
-                        <div>
-                            <a class="btn btn-regresar" href="./Dashboard.php">
-                                <i class="bi bi-arrow-left-circle icon-colored2"></i> Regresar
                             </a>
                         </div>
                     </div>

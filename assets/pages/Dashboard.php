@@ -105,10 +105,8 @@ $result = mysqli_query($conexion, $mostrar);
                 <img src="../img/v2/admin.png" alt="">
                 <div class="info-usuario">
                     <div class="nombre-email">
-                        <span class="nombre">Jhampier</span>
-                        <span class="email">jhampier@gmail.com</span>
+                        <span class="nombre">Admin</span>
                     </div>
-                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
                 </div>
             </div>
         </div>
@@ -147,7 +145,7 @@ $result = mysqli_query($conexion, $mostrar);
     </div>
     <div class="chat-container" id="chat-container">
         <div class="chat-box" id="chat-box">
-            <div class="message bot-message">Hola, ¿en qué puedo ayudarte hoy?</div>
+            <div class="message bot-message">Hola, soy Yeyito!</div>
         </div>
         <div class="container mb-3">
         <div class="input-group">

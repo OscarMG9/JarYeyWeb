@@ -108,10 +108,8 @@
                 <img src="../img/v2/admin.png" alt="">
                 <div class="info-usuario">
                     <div class="nombre-email">
-                        <span class="nombre">Jhampier</span>
-                        <span class="email">jhampier@gmail.com</span>
+                        <span class="nombre">Admin</span>
                     </div>
-                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
                 </div>
             </div>
         </div>
