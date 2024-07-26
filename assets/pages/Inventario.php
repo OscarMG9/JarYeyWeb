@@ -125,7 +125,12 @@ include("../backend/conexion.php");
         </div>
         <nav class="navegacion">
             <ul>
-                
+                <li>
+                    <a  href="./Dashboard.php">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span>Inicio</span>
+                    </a>
+                </li>
                 <li>
                     <a  href="./Inventario.php">
                         <ion-icon name="file-tray-stacked-outline"></ion-icon>
@@ -136,6 +141,12 @@ include("../backend/conexion.php");
                     <a href="../venta/carrito_venta.php">
                         <ion-icon name="cart-outline"></ion-icon>
                         <span>Carrito</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../reportes/reporte.php">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                        <span>Reporte</span>
                     </a>
                 </li>
             </ul>
@@ -153,6 +164,7 @@ include("../backend/conexion.php");
             </div>
         </div>
     </div>
+
     <main>
     <h2 class="text-center mt-4" style="color: #011126;">Inventario</h2>
     <div class="container mt-5">

@@ -68,42 +68,54 @@
 </head>
 <body>
 
-    <div class="barra-lateral">
-            <div class="mb-2">
-                <div class="nombre-pagina">
-                    <img src="../img/v2/logo2.png" class="logo">
-                    <span>JARYEY</span>
-                </div>
+<div class="barra-lateral">
+        <div class="mb-2">
+            <div class="nombre-pagina">
+                <img src="../img/v2/logo2.png" class="logo">
+                <span>JARYEY</span>
             </div>
-            <nav class="navegacion">
-                <ul>
-                    <li>
-                        <a href="../pages/Inventario.php">
-                            <ion-icon name="file-tray-stacked-outline"></ion-icon>
-                            <span>Inventario</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../venta/carrito_venta.php">
-                            <ion-icon name="cart-outline"></ion-icon>
-                            <span>Carrito</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div>
-                <div class="usuario">
-                    <img src="../img/v2/admin.png" alt="">
-                    <div class="info-usuario">
-                        <div class="nombre-email">
-                            <span class="nombre">Jhampier</span>
-                            <span class="email">jhampier@gmail.com</span>
-                        </div>
-                        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+        </div>
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a  href="../pages/Dashboard.php">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="../pages/inventario.php">
+                        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                        <span>Inventario</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./carrito_venta.php">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../reportes/reporte.php">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                        <span>Reporte</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <div class="usuario">
+                <img src="../img/v2/admin.png" alt="">
+                <div class="info-usuario">
+                    <div class="nombre-email">
+                        <span class="nombre">Jhampier</span>
+                        <span class="email">jhampier@gmail.com</span>
                     </div>
+                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
                 </div>
             </div>
         </div>
+    </div>
     <main>
     <div class="container">
         <div class="row">

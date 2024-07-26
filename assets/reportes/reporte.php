@@ -22,8 +22,6 @@ include("../navigation/navbar.php");
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
     </head>
     <body>
-    
-    <!-- Sidebar -->
     <div class="barra-lateral">
         <div class="mb-2">
             <div class="nombre-pagina">
@@ -34,7 +32,13 @@ include("../navigation/navbar.php");
         <nav class="navegacion">
             <ul>
                 <li>
-                    <a href="../pages/Inventario.php">
+                    <a  href="../../../pages/Dashboard.php">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="../pages/Inventario.php">
                         <ion-icon name="file-tray-stacked-outline"></ion-icon>
                         <span>Inventario</span>
                     </a>
@@ -43,6 +47,12 @@ include("../navigation/navbar.php");
                     <a href="../venta/carrito_venta.php">
                         <ion-icon name="cart-outline"></ion-icon>
                         <span>Carrito</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./reporte.php">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                        <span>Reporte</span>
                     </a>
                 </li>
             </ul>
@@ -60,8 +70,6 @@ include("../navigation/navbar.php");
             </div>
         </div>
     </div>
-    <!-- End Sidebar -->
-
     <main style="display: flex;">
         <div class="container mt-5 my-2">
             <h1>Generar reporte de ventas</h1>

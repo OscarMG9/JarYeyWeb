@@ -74,7 +74,12 @@ $result = mysqli_query($conexion, $mostrar);
         </div>
         <nav class="navegacion">
             <ul>
-                
+                <li>
+                    <a  href="./Dashboard.php">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span>Inicio</span>
+                    </a>
+                </li>
                 <li>
                     <a  href="./Inventario.php">
                         <ion-icon name="file-tray-stacked-outline"></ion-icon>
@@ -85,6 +90,12 @@ $result = mysqli_query($conexion, $mostrar);
                     <a href="../venta/carrito_venta.php">
                         <ion-icon name="cart-outline"></ion-icon>
                         <span>Carrito</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../reportes/reporte.php">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                        <span>Reporte</span>
                     </a>
                 </li>
             </ul>
@@ -102,7 +113,6 @@ $result = mysqli_query($conexion, $mostrar);
             </div>
         </div>
     </div>
-
     <main>
     <div class="container my-2">
         <div class="row">

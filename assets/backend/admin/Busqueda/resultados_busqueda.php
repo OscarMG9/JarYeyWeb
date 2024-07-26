@@ -44,7 +44,12 @@
         </div>
         <nav class="navegacion">
             <ul>
-                
+                <li>
+                    <a  href="../../../pages/Dashboard.php">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span>Inicio</span>
+                    </a>
+                </li>
                 <li>
                     <a  href="../../../pages/Inventario.php">
                         <ion-icon name="file-tray-stacked-outline"></ion-icon>
@@ -55,6 +60,12 @@
                     <a href="../../../venta/carrito_venta.php">
                         <ion-icon name="cart-outline"></ion-icon>
                         <span>Carrito</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../../reportes/reporte.php">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                        <span>Reporte</span>
                     </a>
                 </li>
             </ul>
