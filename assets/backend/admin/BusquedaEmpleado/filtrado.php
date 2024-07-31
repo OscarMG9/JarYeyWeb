@@ -28,9 +28,10 @@ if(isset($_GET['idPresentacion'])) {
     $conexion->close();
 } else {
     // Si no se proporciona un ID de presentación, redirigir a la página principal o mostrar un mensaje de error
-    header("Location: ../../../pagesEmpleado/Dashboard.php");
+    header("Location: ../../../pages/Dashboard.php");
     exit();
 }
+
 ?>
 
 
@@ -41,49 +42,94 @@ if(isset($_GET['idPresentacion'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Filtrado</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="../../../css/fondoDashboard.css">
-        <link rel="shortcut icon" href="../../../img/logo.png">
+        <link rel="stylesheet" href="../../../css/menu.css">
+        <link rel="shortcut icon" href="../../../img/v2/logo2.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
     </head>
     <body>
-        <div class="container my-4">
-            <div class="row justify-content-center">
-                <div class="text-center">
-                    <h1 class="my-2 bg-warning text-dark text-center rounded">Resultados del filtrado: <?php echo $nombrePresentacion; ?></h1>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <?php 
-                    $count = 0; 
-                    while ($row = mysqli_fetch_array($result)) { 
-                        if ($count % 4 == 0) {
-                            echo '</div><div class="row justify-content-center">';
-                        }
-                        ?>
-                        <div class="col-md-3 mb-4 text-center">
-                            <div class="card text-bg-light mb-3 h-100" style="max-width: 16rem;">
-                                <div>
-                                    <?php 
-                                    $imagen = "data:" . $row['tipo'] . ";base64," . base64_encode($row['imagen']);
-                                    ?>
-                                    <img src="<?php echo $imagen; ?>" class="card-img-top" alt="..." style="height: 290px;">   
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-center"><?php echo $row['nombreProducto'] ?></h5>
-                                    <p class="card-text"><?php echo $row['descripcionProducto']?></p>
-                                    <a class="btn btn-primary" href="../../../pagesEmpleado/viewProductsDetails.php?idProducto=<?php echo $row['idProducto'] ?>">Detalles</a>
-                                </div>
-                            </div>
-                        </div>
-                        <?php 
-                        $count++;
-                    } 
-                    ?>
-                </div>
-            </div>
-            <div class="text-center">
-                <a href="../../../pagesEmpleado/Dashboard.php" class="btn btn-primary mb-3">Página principal</a>
+    <div class="barra-lateral">
+        <div class="mb-2">
+            <div class="nombre-pagina">
+                <img src="../../../img/v2/logo2.png" class="logo">
+                <span>JARYEY</span>
             </div>
         </div>
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a  href="../../../pagesEmpleado/Dashboard.php">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="../../../pagesEmpleado/Inventario.php">
+                        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                        <span>Inventario</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../../ventaEmpleado/carrito_venta.php">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../../reportesEmpleado/reporte.php">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                        <span>Reporte</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <div class="usuario">
+                <img src="../../../img/v2/employe.png" alt="">
+                <div class="info-usuario">
+                    <div class="nombre-email">
+                        <span class="nombre">Empleado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <main>
+        <div class="container my-2">
+        <div class="row">
+            <?php 
+            $count = 0; 
+            while ($row = mysqli_fetch_array($result)) { 
+                if ($count % 4 == 0) {
+                    echo '</div><div class="row">';
+                }
+            ?>
+            <div class="col-md-3 mb-2">
+                <a href="../../../pagesEmpleado/viewProductsDetails.php?idProducto=<?php echo $row['idProducto'] ?>" class="card-link">
+                    <div class="card-custom text-bg-light mb-3 h-100 shadow-lg" style="max-width: 16rem;">
+                        <div>
+                            <img src="data:<?php echo $row['tipo']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" class="card-img-top" alt="..." style="height: 290px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <br>
+                            <h5 class="card-title text-center"><?php echo $row['nombreProducto'] ?></h5>
+                            <p class="card-text"><?php echo $row['descripcionProducto']?></p>
+                            <p class="card-text ">$<?php echo $row['precio']?></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <?php 
+                $count++;
+            } 
+            ?>
+        </div>
+    </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="../js/Menu.js"></script> -->
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     </body>
 </html>

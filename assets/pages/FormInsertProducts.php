@@ -134,34 +134,34 @@
 <body>
     <div class="form-container">
         <h1>Agregar Nuevo Producto</h1>
-        <form id="product-form" action="../backend/admin/insert.php" method="POST" enctype="multipart/form-data" class="form-group">
+        <form id="product-form" action="../backend/admin/insert.php" method="POST" enctype="multipart/form-data" class="form-group" onsubmit="return validarDatosRegistro()">
             <div class="row">
                 <div class="col-md-6 my-3">
                     <div class="image-upload">
                         <label for="imagenInput">Seleccionar Imagen</label>
-                        <input id="imagenInput" type="file" name="imagen" accept="image/png" onchange="previewImage(event)" required>
+                        <input id="imagenInput" type="file" name="imagen" accept="image/png" onchange="previewImage(event)">
                         <div class="image-preview" id="image-preview">
                             <img id="image-preview-img" alt="Vista previa de la imagen">
-                            <p id="image-preview-text">Solo imágenes con formato .png</p> <!-- Mensaje con ID -->
+                            <p id="image-preview-text">Solo imágenes con formato <strong>.png</strong></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 my-3">
                     <label for="nombreArticulo">Artículo</label>
-                    <input type="text" name="nombreArticulo" id="nombreArticulo" placeholder="Nombre del artículo" class="form-control form-control-custom" required>
+                    <input type="text" name="nombreArticulo" id="nombreArticulo" placeholder="Nombre del artículo" class="form-control form-control-custom">
                     <small id="text-error-nombre" class="form-text text-danger"></small>
 
                     <label for="descripcionArticulo">Descripción</label>
-                    <textarea name="descripcionArticulo" id="descripcionArticulo" placeholder="Escriba una descripción máxima de 10 palabras" class="form-control form-control-custom" required></textarea>
+                    <textarea name="descripcionArticulo" id="descripcionArticulo" placeholder="Escriba una descripción máxima de 10 palabras" class="form-control form-control-custom"></textarea>
                     <small id="text-error-descripcion" class="form-text text-danger"></small>
 
                     <label for="precioProducto">Precio</label>
-                    <input type="text" name="precioProducto" id="precioProducto" placeholder="00.00" class="form-control form-control-custom" required>
+                    <input type="text" name="precioProducto" id="precioProducto" placeholder="00.00" class="form-control form-control-custom">
                     <small id="text-error-precio" class="form-text text-danger"></small>
 
                     <label for="presentacion">Presentación</label>
-                    <select name="presentacion" id="presentacion" class="form-control form-control-custom" required>
-                        <option value="">Elige una opción</option>
+                    <select name="presentacion" id="idPresentacion" class="form-control form-control-custom">
+                        <option value="Elige una opción">Elige una opción</option>
                         <?php
                         include("../backend/conexion.php");
                         $query = "SELECT idPresentacion, nombrePresentacion FROM presentacion";
@@ -173,12 +173,13 @@
                     <small id="text-error-presentacion" class="form-text text-danger"></small>
 
                     <label for="cantidadArticulos">Cantidad</label>
-                    <input type="number" min="0" max="100" name="cantidadArticulos" id="cantidadArticulos" placeholder="0" class="form-control form-control-custom" required>
+                    <input type="number" min="0" max="100" name="cantidadArticulos" id="cantidadArticulos" placeholder="0" class="form-control form-control-custom">
                     <small id="text-error-cantidad" class="form-text text-danger"></small>
                 </div>
             </div>
             <div class="center-buttons">
                 <button type="submit" class="btn btn-custom mb-2">Guardar</button>
+                <button type="reset" onclick="limpiarFormulario();" class="btn btn-custom mb-2">Limpiar</button>
                 <a class="btn btn-cancel mb-2" href="../pages/Inventario.php">Cancelar</a>
             </div>
         </form>
@@ -201,6 +202,7 @@
         <div class="toast-body" id="toast-error-message"></div>
     </div>
 
+    <script src="../js/validacionesProducto.js"></script>
     <script>
         function previewImage(event) {
             const preview = document.getElementById('image-preview');

@@ -1,6 +1,6 @@
 <?php 
 session_start(); // Asegúrate de iniciar la sesión
-include("../navigation/navbarCopy.php");
+include("../navigationEmpleado/navbarCopy.php");
 include("../backend/conexion.php");
 ?>
 
@@ -113,6 +113,15 @@ include("../backend/conexion.php");
         .btn-regresar:hover .icon-colored2 {
             color: #011126; /* Cambia el color del icono al pasar el apuntador */
         }
+
+        h1 {
+            background: #011126; /* Color sólido más fuerte */
+            color: #E8F0FE;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body style="background-color: #D5EDF2;">
@@ -132,19 +141,19 @@ include("../backend/conexion.php");
                     </a>
                 </li>
                 <li>
-                    <a  href="./pagesEmpleado/Inventario.php">
+                    <a  href="./Inventario.php">
                         <ion-icon name="file-tray-stacked-outline"></ion-icon>
                         <span>Inventario</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../venta/carrito_venta.php">
+                    <a href="../ventaEmpleado/carrito_venta.php">
                         <ion-icon name="cart-outline"></ion-icon>
-                        <span>Carrito</span>
+                        <span>Vender</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../reportes/reporte.php">
+                    <a href="../reportesEmpleado/reporte.php">
                         <ion-icon name="newspaper-outline"></ion-icon>
                         <span>Reporte</span>
                     </a>
@@ -164,12 +173,23 @@ include("../backend/conexion.php");
     </div>
 
     <main>
-    <h2 class="text-center mt-4" style="color: #011126;">Inventario</h2>
     <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center mt-2">
+                <h1 class="text-center mt-4">Inventario</h1>
+                <br>
+                <div class="button-container">
+                    <a class="btn btn-agregar btn-block" href="./FormInsertProducts.php">
+                        <b><i class="bi bi-plus-lg icon-colored"></i> Agregar</b>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-12">
                         <div class="reporte-container text-center">
                             <table id="tabla-productos" class="table table-bordered display">
                                 <thead>
@@ -193,11 +213,11 @@ include("../backend/conexion.php");
                                                 <td style="color: #011126;"><?php echo $row['nombrePresentacion']?></td>
                                                 <td><?php echo $row['cantidadProducto'] ?></td>
                                                 <td>
+                                                    <a class="btn" href="./ViewProduct.php?idProducto=<?php echo $row['idProducto']?>">
+                                                        <i class="bi bi-eye icon-colored"></i>
+                                                    </a>
                                                     <a class="btn" href="./updateProductTable.php?idProducto=<?php echo $row['idProducto'] ?>">
                                                         <i class="bi bi-pencil icon-colored"></i>
-                                                    </a>
-                                                    <a class="btn" href="../backend/admin/inventario/deleteProduct.php?idProducto=<?php echo $row['idProducto']?>" onclick="return confirm('¿Estás seguro de que deseas borrar este producto?');">
-                                                        <i class="bi bi-trash icon-colored"></i>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -205,13 +225,6 @@ include("../backend/conexion.php");
                                     ?>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                    <div class="col-2 text-center">
-                        <div class="button-container">
-                            <a class="btn btn-agregar" href="./FormInsertProducts.php">
-                                <i class="bi bi-plus-lg icon-colored"></i> Agregar
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -244,7 +257,7 @@ include("../backend/conexion.php");
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="../js/Menu.js"></script>
+    <!-- <script src="../js/Menu.js"></script> -->
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <!-- jQuery -->

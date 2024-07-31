@@ -7,7 +7,7 @@
   <!-- Estilos de Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/fondo.css">
-  <link rel="icon" href="./assets/img/logo2.png" type="image/png">
+  <link rel="icon" href="./assets/img/v2/logo2.png" type="image/png">
 </head>
 <body>
   <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">

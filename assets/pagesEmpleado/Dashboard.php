@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
 }
 
 // Incluir archivos necesarios
-include("../navigation/navbar.php");
+include("../navigationEmpleado/navbar.php");
 include("../backend/conexion.php");
 
 // Consulta a la base de datos u otras operaciones PHP aquí
@@ -56,7 +56,7 @@ $result = mysqli_query($conexion, $mostrar);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="../css/fondoDashboard.css">
+    <link rel="stylesheet" href="../css/fondoDash.css">
     <link rel="stylesheet" href="../css/chat.css">
     <link rel="icon" href="./assets/img/logo2.png" type="image/png">
     <link rel="stylesheet" href="../css/Menu.css">
@@ -87,13 +87,13 @@ $result = mysqli_query($conexion, $mostrar);
                     </a>
                 </li>
                 <li>
-                    <a href="../venta/carrito_venta.php">
+                    <a href="../ventaEmpleado/carrito_venta.php">
                         <ion-icon name="cart-outline"></ion-icon>
-                        <span>Carrito</span>
+                        <span>Vender</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../reportes/reporte.php">
+                    <a href="../reportesEmpleado/reporte.php">
                         <ion-icon name="newspaper-outline"></ion-icon>
                         <span>Reporte</span>
                     </a>
@@ -200,81 +200,81 @@ $result = mysqli_query($conexion, $mostrar);
                 chatContainer.style.display = "none";
             }
         }
-        document.querySelectorAll('.menu-item > a').forEach(menuLink => {
-        menuLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            const parentLi = this.parentElement;
-            if (parentLi.classList.contains('active')) {
-                parentLi.classList.remove('active');
-            } else {
-                document.querySelectorAll('.menu-item').forEach(li => li.classList.remove('active'));
-                parentLi.classList.add('active');
-            }
-        });
-    });
-    document.querySelectorAll('.menu-item').forEach(item => {
-    item.addEventListener('click', function(event) {
-        event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+    //     document.querySelectorAll('.menu-item > a').forEach(menuLink => {
+    //     menuLink.addEventListener('click', function(event) {
+    //         event.preventDefault();
+    //         const parentLi = this.parentElement;
+    //         if (parentLi.classList.contains('active')) {
+    //             parentLi.classList.remove('active');
+    //         } else {
+    //             document.querySelectorAll('.menu-item').forEach(li => li.classList.remove('active'));
+    //             parentLi.classList.add('active');
+    //         }
+    //     });
+    // });
+//     document.querySelectorAll('.menu-item').forEach(item => {
+//     item.addEventListener('click', function(event) {
+//         event.preventDefault(); // Evita el comportamiento predeterminado del enlace
 
-        // Alternar la clase activa
-        this.classList.toggle('active');
+//         // Alternar la clase activa
+//         this.classList.toggle('active');
 
-        // Cambia el ícono del chevron
-        const chevronIcon = this.querySelector('.chevron-icon');
-        if (this.classList.contains('active')) {
-            chevronIcon.setAttribute('name', 'chevron-up-outline');
-        } else {
-            chevronIcon.setAttribute('name', 'chevron-down-outline');
-        }
-    });
-});
+//         // Cambia el ícono del chevron
+//         const chevronIcon = this.querySelector('.chevron-icon');
+//         if (this.classList.contains('active')) {
+//             chevronIcon.setAttribute('name', 'chevron-up-outline');
+//         } else {
+//             chevronIcon.setAttribute('name', 'chevron-down-outline');
+//         }
+//     });
+// });
 
-document.querySelectorAll('.menu-item').forEach(item => {
-    item.addEventListener('click', function(event) {
-        event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+// document.querySelectorAll('.menu-item').forEach(item => {
+//     item.addEventListener('click', function(event) {
+//         event.preventDefault(); // Evita el comportamiento predeterminado del enlace
 
-        // Alternar la clase activa
-        this.classList.toggle('active');
+//         // Alternar la clase activa
+//         this.classList.toggle('active');
 
-        // Cambia el ícono del chevron
-        const chevronIcon = this.querySelector('.chevron-icon');
-        if (this.classList.contains('active')) {
-            chevronIcon.setAttribute('name', 'chevron-up-outline');
-        } else {
-            chevronIcon.setAttribute('name', 'chevron-down-outline');
-        }
-    });
-});
-var slider = document.getElementById('price-range');
-        var priceMin = document.getElementById('price-min');
-        var priceMax = document.getElementById('price-max');
+//         // Cambia el ícono del chevron
+//         const chevronIcon = this.querySelector('.chevron-icon');
+//         if (this.classList.contains('active')) {
+//             chevronIcon.setAttribute('name', 'chevron-up-outline');
+//         } else {
+//             chevronIcon.setAttribute('name', 'chevron-down-outline');
+//         }
+//     });
+// });
+// var slider = document.getElementById('price-range');
+//         var priceMin = document.getElementById('price-min');
+//         var priceMax = document.getElementById('price-max');
 
-        noUiSlider.create(slider, {
-            start: [7.5, 130],
-            connect: true,
-            range: {
-                'min': 7.5,
-                'max': 130
-            },
-            step: 0.5,
-            tooltips: [true, true],
-            format: {
-                to: function (value) {
-                    return '$' + value.toFixed(2);
-                },
-                from: function (value) {
-                    return Number(value.replace('$', ''));
-                }
-            }
-        });
+//         noUiSlider.create(slider, {
+//             start: [7.5, 130],
+//             connect: true,
+//             range: {
+//                 'min': 7.5,
+//                 'max': 130
+//             },
+//             step: 0.5,
+//             tooltips: [true, true],
+//             format: {
+//                 to: function (value) {
+//                     return '$' + value.toFixed(2);
+//                 },
+//                 from: function (value) {
+//                     return Number(value.replace('$', ''));
+//                 }
+//             }
+//         });
 
-        slider.noUiSlider.on('update', function (values, handle) {
-            if (handle === 0) {
-                priceMin.innerHTML = values[0];
-            } else {
-                priceMax.innerHTML = values[1];
-            }
-        });
+        // slider.noUiSlider.on('update', function (values, handle) {
+        //     if (handle === 0) {
+        //         priceMin.innerHTML = values[0];
+        //     } else {
+        //         priceMax.innerHTML = values[1];
+        //     }
+        // });
 
         function toggleContent(content) {
             content.classList.toggle('is-hidden');
@@ -289,7 +289,6 @@ var slider = document.getElementById('price-range');
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="../js/Menu.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>

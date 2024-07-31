@@ -57,7 +57,7 @@
                     </div>
                 </div>
             <div class="text-center mt-4">
-                <a class="btn btn-cancel mb-2" href="../pages/Dashboard.php">Regresar</a>
+                <a class="btn btn-cancel mb-2" href="./Inventario.php">Regresar</a>
             </div>
         </form>
     </div>

@@ -1,0 +1,20 @@
+{
+    "hola": "¡Hola! ¿Cómo puedo ayudarte?",
+    "adiós": "¡Adiós! Que tengas un buen día.",
+    "recomendación": "Dime qué productos tienes y te puedo sugerir combinaciones o usos adecuados.",
+    "escoba": "Existen diferentes tipos de escobas, como las de cerdas duras para exteriores y las de cerdas suaves para interiores. Las escobas de cerdas duras son ideales para barrer superficies ásperas como patios y garajes, mientras que las de cerdas suaves son mejores para pisos delicados como los de madera o cerámica.",
+    "trapeador": "Hay trapeadores de esponja y de franjas. Los de esponja son buenos para absorber líquidos y limpiar superficies lisas, mientras que los de franjas son útiles para limpiar superficies irregulares y esquinas. Combínalos con una cubeta y detergente para una limpieza profunda.",
+    "cepillo": "Un cepillo puede tener cerdas duras o suaves. Los cepillos de cerdas duras son ideales para limpiar superficies resistentes como concreto o ladrillo, mientras que los de cerdas suaves son mejores para superficies delicadas como madera o azulejos.",
+    "fabuloso": "Limpiador multiusos con fragancia. Es ideal para limpiar pisos, superficies y objetos en el hogar. Puedes usarlo en combinación con agua para diluirlo según las instrucciones del envase. Evita mezclarlo con otros productos de limpieza para no reducir su efectividad.",
+    "cloro": "El cloro es un potente desinfectante y blanqueador. Es ideal para desinfectar superficies y blanquear ropa blanca. No lo combines con amoníaco, ya que puede producir gases tóxicos. Usa cloro en una proporción adecuada con agua según las instrucciones del producto.",
+    "pinol": "Pinol es un limpiador con acción desinfectante y fragancia a pino. Es excelente para limpiar pisos y superficies. Puedes diluirlo en agua según las instrucciones  para la limpieza general. No lo combines con productos que contengan ácido, como el vinagre,  para evitar reacciones químicas no deseadas.",
+    "pinol y fabuloso": "Pinol y Fabuloso son ambos limpiadores efectivos, pero no es recomendable combinarlos directamente, ya que cada uno tiene su formulación específica. Usa Pinol para desinfectar y limpiar superficies y Fabuloso para mantener un aroma fresco en las áreas limpias.",
+    "pinol y cloro": "No es seguro combinar Pinol y cloro. La mezcla puede liberar gases tóxicos peligrosos. Es mejor usar cada producto por separado según sus indicaciones.",
+    "fabuloso y cloro": "No mezcles Fabuloso y cloro, ya que puede producir reacciones peligrosas. Usa Fabuloso para limpieza general y cloro para desinfección específica de superficies.",
+    "¿qué detergentes puedo combinar?": "Puedes combinar detergentes líquidos con suavizantes, pero evita mezclar diferentes tipos de detergentes para evitar reacciones químicas no deseadas.",
+    "¿puedo mezclar detergente en polvo con suavizante?": "No es recomendable mezclar detergente en polvo con suavizante directamente, ya que pueden perder efectividad.",
+    "¿qué pasa si mezclo diferentes detergentes?": "Mezclar diferentes detergentes puede causar reacciones químicas que reduzcan su efectividad o incluso ser peligrosas. Es mejor usar cada producto según sus instrucciones.",
+    "¿puedo combinar detergente y vinagre?": "Sí, puedes combinar detergente y vinagre para algunas tareas de limpieza, pero no es recomendable para todas las superficies. Usa esta combinación con precaución. Esta combinación es excelente para limpiar ventanas, espejos y eliminar malos olores en la ropa. Sin embargo, evita usarla en superficies de piedra natural como mármol o granito, ya que el vinagre puede dañarlas.",
+    "¿puedo usar agua con vinagre para limpiar?": "Sí, el agua con vinagre es excelente para limpiar superficies y eliminar malos olores de manera natural.",
+    "¿puedo usar detergente para ropa blanca en ropa de color?": "El detergente para ropa blanca suele tener agentes blanqueadores que pueden dañar la ropa de color. Es mejor usar detergente específico para ropa de color."
+    }
